@@ -64,7 +64,6 @@ public class DetailView extends JPanel {
                 if (confirm == JOptionPane.YES_OPTION) {
                     data.deleteToDo(activeIndex);
                     renewPanel(site.getClass().getName());
-                    data.save(data.getToDoList());
                 }
             }
         }

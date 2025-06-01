@@ -32,7 +32,6 @@ public class Data {
 
         mapper.registerModule(new JavaTimeModule());
         this.toDoList = load();
-        System.out.println("data loaded.");
     }
 
     private void setCathegoryArray() {
@@ -53,6 +52,7 @@ public class Data {
                 return new ArrayList<>();
             }
             ToDo[] toDoArray = mapper.readValue(FILE, ToDo[].class);
+            System.out.println("data loaded.");
             return new ArrayList<>(Arrays.asList(toDoArray));
         } catch (Exception e) {
             System.err.println("load falure: " + e.getMessage());
@@ -71,10 +71,13 @@ public class Data {
     public void addToDo(ToDo toDo) {
         this.toDoList.add(toDo);
         save(this.toDoList);
+        System.out.println("ToDo saved.");
     }
 
     public void deleteToDo(int activeIndex) {
         toDoList.remove(activeIndex);
+        save(this.toDoList);
+        System.out.println("ToDo deleted.");
     }
 
     public void updateToDo(ToDo toDo, int index) {
@@ -86,6 +89,8 @@ public class Data {
         getToDo(index).setWhenUrgent(toDo.getWhenUrgent());
         getToDo(index).setExpiryDate(toDo.getExpiryDate());
         getToDo(index).setCategory(toDo.getCategory());
+        save(this.toDoList);
+        System.out.println("ToDo updated.");
     }
 
     public ArrayList<ToDo> getToDoList() {

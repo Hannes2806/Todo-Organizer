@@ -48,4 +48,14 @@
   "expiryDate" : [ 2025, 5, 31 ],
   "creationDate" : [ 2025, 5, 31 ],
   "category" : "Work"
+}, {
+  "title" : "Heute ist Sommerzeit",
+  "description" : "Warm und Toll jai",
+  "permanence" : false,
+  "urgent" : true,
+  "notUrgent" : false,
+  "whenUrgent" : [ 2025, 6, 1 ],
+  "expiryDate" : [ 2025, 6, 3 ],
+  "creationDate" : [ 2025, 6, 1 ],
+  "category" : "Leisure"
 } ]
