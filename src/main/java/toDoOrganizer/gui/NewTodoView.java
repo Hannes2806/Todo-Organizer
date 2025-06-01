@@ -35,6 +35,7 @@ public class NewTodoView extends JPanel {
     public NewTodoView(int activeIndex) {
 
         //Anschließend actionListeners in controller auslagern
+        // - dazu Seitenaufruf im Card layout main optimieren
 
 
         //Ist es schon drin, das Todo später automatisch urgent wird?

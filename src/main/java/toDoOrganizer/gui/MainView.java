@@ -13,7 +13,8 @@ public class MainView extends JFrame {
     //private AppController controller;
     private Data data = Data.getInstance();
     private static JPanel main, header;
-    //private JPanel todayView, details, homeView;
+    private OverviewView overviewView;
+    private TodayView 
 
     public MainView() {
         //this.controller = controller;
@@ -45,10 +46,12 @@ public class MainView extends JFrame {
         main = new JPanel();
         main.setLayout(new CardLayout());
 
-        main.add(new OverviewView(), "Overview");
 
+
+        main.add(new OverviewView(), "Overview");
         main.add(new TodayView(), "Today");
         main.add(new CalendarView(), "Calendar");
+        main.add(new HomeView(), "Home");
 
 
         //Action listener header:
