@@ -1,0 +1,51 @@
+[ {
+  "title" : "Haus Bauen",
+  "description" : "Ein schönes Haus errichten",
+  "permanence" : false,
+  "urgent" : false,
+  "notUrgent" : true,
+  "whenUrgent" : [ 2025, 5, 21 ],
+  "expiryDate" : [ 2025, 5, 21 ],
+  "creationDate" : [ 2025, 5, 21 ],
+  "category" : "Education"
+}, {
+  "title" : "Ein neues TODO",
+  "description" : "Lorem Ipsum",
+  "permanence" : false,
+  "urgent" : true,
+  "notUrgent" : false,
+  "whenUrgent" : [ 2025, 5, 21 ],
+  "expiryDate" : [ 2025, 5, 21 ],
+  "creationDate" : [ 2025, 5, 21 ],
+  "category" : "Education"
+}, {
+  "title" : "Permanentes Todo",
+  "description" : "Ein kreativer text",
+  "permanence" : true,
+  "urgent" : true,
+  "notUrgent" : false,
+  "whenUrgent" : [ 2025, 5, 30 ],
+  "expiryDate" : [ 2025, 5, 30 ],
+  "creationDate" : [ 2025, 5, 30 ],
+  "category" : "Education"
+}, {
+  "title" : "Späteres Todo",
+  "description" : "Ein Todo, das später wichtig wird",
+  "permanence" : false,
+  "urgent" : false,
+  "notUrgent" : true,
+  "whenUrgent" : [ 2025, 6, 3 ],
+  "expiryDate" : [ 2025, 5, 31 ],
+  "creationDate" : [ 2025, 5, 31 ],
+  "category" : "Education"
+}, {
+  "title" : "Cathegory Todo",
+  "description" : "Mal eine andere Kategorie",
+  "permanence" : true,
+  "urgent" : false,
+  "notUrgent" : true,
+  "whenUrgent" : [ 2025, 5, 31 ],
+  "expiryDate" : [ 2025, 5, 31 ],
+  "creationDate" : [ 2025, 5, 31 ],
+  "category" : "Work"
+} ]
