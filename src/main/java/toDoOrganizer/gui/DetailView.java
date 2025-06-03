@@ -47,7 +47,9 @@ public class DetailView extends JPanel {
         this.editButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                MainView.switchPanel(new NewTodoView(activeIndex));
+                MainView.newTodoView.setActiveIndex(activeIndex);
+                MainView.newTodoView.prefillData(activeIndex);
+                MainView.switchPanel("NewTodo");
             }
         });
 
@@ -63,23 +65,23 @@ public class DetailView extends JPanel {
 
                 if (confirm == JOptionPane.YES_OPTION) {
                     data.deleteToDo(activeIndex);
-                    renewPanel(site.getClass().getName());
+                    MainView.refreshViews();
                 }
             }
         }
         );
     }
 
-    private void renewPanel(String siteName) {
-        switch (siteName) {
-            case "OverviewView":
-                MainView.switchPanel(new OverviewView());
-            case "TodayView":
-                MainView.switchPanel(new TodayView());
-            default:
-                MainView.switchPanel(new OverviewView());
-        }
-    }
+//    private void renewPanel(String siteName) {
+//        switch (siteName) {
+//            case "OverviewView":
+//                MainView.switchPanel("Overview");
+//            case "TodayView":
+//                MainView.switchPanel("Today");
+//            default:
+//                MainView.switchPanel("Overview");
+//        }
+//    }
 
 
     public void showDetails(int index) {

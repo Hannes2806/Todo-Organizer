@@ -10,7 +10,7 @@
   "category" : "Education"
 }, {
   "title" : "Ein neues TODO",
-  "description" : "Lorem Ipsum",
+  "description" : "Lorem Ipsum j",
   "permanence" : false,
   "urgent" : true,
   "notUrgent" : false,
@@ -50,7 +50,7 @@
   "category" : "Work"
 }, {
   "title" : "Heute ist Sommerzeit",
-  "description" : "Warm und Toll jai",
+  "description" : "Warm und Toll jaiiii juju",
   "permanence" : false,
   "urgent" : true,
   "notUrgent" : false,
@@ -58,4 +58,24 @@
   "expiryDate" : [ 2025, 6, 3 ],
   "creationDate" : [ 2025, 6, 1 ],
   "category" : "Leisure"
+}, {
+  "title" : "Es gibt eis",
+  "description" : "Jau",
+  "permanence" : false,
+  "urgent" : false,
+  "notUrgent" : true,
+  "whenUrgent" : [ 2025, 6, 3 ],
+  "expiryDate" : [ 2025, 6, 3 ],
+  "creationDate" : [ 2025, 6, 3 ],
+  "category" : "Leisure"
+}, {
+  "title" : "Es gibt soße",
+  "description" : "fgdfg",
+  "permanence" : false,
+  "urgent" : false,
+  "notUrgent" : true,
+  "whenUrgent" : [ 2025, 6, 3 ],
+  "expiryDate" : [ 2025, 6, 3 ],
+  "creationDate" : [ 2025, 6, 3 ],
+  "category" : "Education"
 } ]

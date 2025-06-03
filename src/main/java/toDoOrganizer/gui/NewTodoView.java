@@ -16,6 +16,8 @@ import java.util.Date;
 public class NewTodoView extends JPanel {
     private Data data = Data.getInstance();
 
+    private int activeIndex = -1;
+
     private JTextField titleTextField;
     private JTextArea descriptionTextArea;
     private JCheckBox permanentCheckBox;
@@ -29,21 +31,20 @@ public class NewTodoView extends JPanel {
     private JButton toDoSaveButton;
 
     public NewTodoView() {
-        init(-1);
+        init();
     }
 
-    public NewTodoView(int activeIndex) {
+    public NewTodoView(int index) {
+//        activeIndex = index;
+//        init(activeIndex);
 
         //Anschließend actionListeners in controller auslagern
         // - dazu Seitenaufruf im Card layout main optimieren
 
-
         //Ist es schon drin, das Todo später automatisch urgent wird?
-
-        init(activeIndex);
     }
 
-    private void init(int activeIndex) {
+    private void init() {
         setLayout(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
 
@@ -57,66 +58,9 @@ public class NewTodoView extends JPanel {
         initCategorySection(gbc);
         initSaveSection(gbc);
 
-        if (activeIndex != -1) {
-            prefillData(activeIndex);
-        }
-
-
-        //Add Action Listeners
-        if (activeIndex == -1) {
-            titleTextField.addKeyListener(new KeyAdapter() {
-                @Override
-                public void keyReleased(KeyEvent e) {
-                    toDoSaveButton.setEnabled(!titleTextField.getText().trim().isEmpty());
-                }
-            });
-        }
-
-        permanentCheckBox.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                whenUrgentSpinner.setEnabled(!permanentCheckBox.isSelected());
-                expirySpinner.setEnabled(!permanentCheckBox.isSelected());
-                //If unselect permantentCheckBox and urgent still selected, do whenUrgent not functional
-                if (urgentRadioButton.isSelected()) {
-                    whenUrgentSpinner.setEnabled(false);
-                }
-            }
-        });
-
-        urgentRadioButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                whenUrgentSpinner.setEnabled(!urgentRadioButton.isSelected());
-            }
-        });
-
-        notUrgentRadioButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if (!permanentCheckBox.isSelected()) {
-                    whenUrgentSpinner.setEnabled(notUrgentRadioButton.isSelected());
-                }
-            }
-        });
-
-        toDoSaveButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                ToDo toDo = new ToDo(titleTextField.getText(), descriptionTextArea.getText(),
-                        permanentCheckBox.isSelected(), urgentRadioButton.isSelected(),
-                        notUrgentRadioButton.isSelected(), dateSpinnerToLocalDate(whenUrgentSpinner),
-                        dateSpinnerToLocalDate(expirySpinner), LocalDate.now(),
-                        (String) categoryBox.getSelectedItem());
-                if (activeIndex == -1) {
-                    data.addToDo(toDo);
-                }
-                else {
-                    data.updateToDo(toDo, activeIndex);
-                }
-                MainView.switchPanel(new OverviewView());
-            }
-        });
+//        if (activeIndex != -1) {
+//            prefillData(activeIndex);
+//        }
     }
 
     private void initHeadingSection(GridBagConstraints gbc) {
@@ -231,7 +175,7 @@ public class NewTodoView extends JPanel {
         add(toDoSaveButton, gbc);
     }
 
-    private void prefillData(int activeIndex) {
+    public void prefillData(int activeIndex) {
         titleTextField.setText(data.getToDo(activeIndex).getTitle());
         descriptionTextArea.setText(data.getToDo(activeIndex).getDescription());
         Date whenUrgentDate = Date.from(data.getToDo(activeIndex).getWhenUrgent().atStartOfDay(ZoneId.systemDefault()).toInstant()); //convert to date
@@ -256,8 +200,60 @@ public class NewTodoView extends JPanel {
         }
     }
 
-    private LocalDate dateSpinnerToLocalDate(JSpinner jSpinner) {
-        Date date = (Date) jSpinner.getValue();
-        return date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+    public void clearData() {
+        titleTextField.setText("");
+        descriptionTextArea.setText("");
+        whenUrgentModel.setValue(new Date());
+        expiryModel.setValue(new Date());
+        categoryBox.setSelectedItem("Education");
+        toDoSaveButton.setEnabled(false);
+        permanentCheckBox.setSelected(false);
+        whenUrgentSpinner.setEnabled(true);
+        expirySpinner.setEnabled(true);
+        notUrgentRadioButton.setSelected(true);
+    }
+
+    public int getActiveIndex() {
+        return activeIndex;
+    }
+
+    public void setActiveIndex(int index) {
+        activeIndex = index;
+    }
+
+    public JTextField getTitleTextField() {
+        return titleTextField;
+    }
+
+    public JTextArea getDescriptionTextArea() {
+        return descriptionTextArea;
+    }
+
+    public JCheckBox getPermanentCheckBox() {
+        return permanentCheckBox;
+    }
+
+    public JRadioButton getUrgentRadioButton() {
+        return urgentRadioButton;
+    }
+
+    public JRadioButton getNotUrgentRadioButton() {
+        return notUrgentRadioButton;
+    }
+
+    public JSpinner getWhenUrgentSpinner() {
+        return whenUrgentSpinner;
+    }
+
+    public JSpinner getExpirySpinner() {
+        return expirySpinner;
+    }
+
+    public JComboBox<String> getCategoryBox() {
+        return categoryBox;
+    }
+
+    public JButton getToDoSaveButton() {
+        return toDoSaveButton;
     }
 }

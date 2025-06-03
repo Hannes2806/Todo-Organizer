@@ -5,9 +5,13 @@ import toDoOrganizer.data.ToDo;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.Collections;
 
 public class OverviewView extends JPanel {
     private Data data = Data.getInstance();
+
+    private DefaultListModel urgentListModel;
+    private DefaultListModel notUrgentListModel;
 
     public OverviewView() {
         DetailView details = new DetailView(this);
@@ -36,13 +40,15 @@ public class OverviewView extends JPanel {
         overviewPanel.add(notUrgentLabel, gbc);
         //Lists:
         gbc.gridy = 2;
-        JList<ToDo> urgentList = new JList<>(data.filterUrgency(data.getToDoList(), true));
+        urgentListModel = data.filterUrgency(data.getToDoList(), true);
+        JList<ToDo> urgentList = new JList<>(urgentListModel);
         urgentList.setCellRenderer(new MainView.BulletPointRenderer()); //integrate Bulletpoints
         JScrollPane urgentScrollPane = new JScrollPane(urgentList);
         urgentScrollPane.setPreferredSize(new Dimension(300, 200)); //minimum width/height
         overviewPanel.add(urgentScrollPane, gbc);
         gbc.gridy = 4;
-        JList<ToDo> notUrgentList = new JList<>(data.filterUrgency(data.getToDoList(), false));
+        notUrgentListModel = data.filterUrgency(data.getToDoList(), false);
+        JList<ToDo> notUrgentList = new JList<>(notUrgentListModel);
         notUrgentList.setCellRenderer(new MainView.BulletPointRenderer()); //integrate Bulletpoints
         JScrollPane notUrgentScrollPane = new JScrollPane(notUrgentList);
         notUrgentScrollPane.setPreferredSize(new Dimension(300, 200)); //minimum width/height
@@ -68,5 +74,12 @@ public class OverviewView extends JPanel {
             }
         });
 
+    }
+
+    public void refreshData() {
+        urgentListModel.clear();
+        urgentListModel.addAll(Collections.list(data.filterUrgency(data.getToDoList(), true).elements()));
+        notUrgentListModel.clear();
+        notUrgentListModel.addAll(Collections.list(data.filterUrgency(data.getToDoList(), false).elements()));
     }
 }

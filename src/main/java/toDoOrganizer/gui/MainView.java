@@ -1,5 +1,7 @@
 package toDoOrganizer.gui;
 
+import toDoOrganizer.controller.NewTodoController;
+import toDoOrganizer.controller.OverviewController;
 import toDoOrganizer.data.Data;
 
 import javax.swing.*;
@@ -13,8 +15,13 @@ public class MainView extends JFrame {
     //private AppController controller;
     private Data data = Data.getInstance();
     private static JPanel main, header;
-    private OverviewView overviewView;
-    private TodayView 
+
+    private static CardLayout cardLayout;
+    public static OverviewView overviewView;
+    public static TodayView todayView;
+    public static CalendarView calendarView;
+    private HomeView homeView;
+    public static NewTodoView newTodoView;
 
     public MainView() {
         //this.controller = controller;
@@ -44,14 +51,23 @@ public class MainView extends JFrame {
 
         //Main:
         main = new JPanel();
-        main.setLayout(new CardLayout());
+        cardLayout = new CardLayout();
+        main.setLayout(cardLayout);
+
+        overviewView = new OverviewView();
+//        new OverviewController(overviewView);
+        todayView = new TodayView();
+        calendarView = new CalendarView();
+        homeView = new HomeView();
+        newTodoView = new NewTodoView();
+        new NewTodoController(newTodoView);
 
 
-
-        main.add(new OverviewView(), "Overview");
-        main.add(new TodayView(), "Today");
-        main.add(new CalendarView(), "Calendar");
-        main.add(new HomeView(), "Home");
+        main.add(overviewView, "Overview");
+        main.add(todayView, "Today");
+        main.add(calendarView, "Calendar");
+        main.add(homeView, "Home");
+        main.add(newTodoView, "NewTodo");
 
 
         //Action listener header:
@@ -62,16 +78,16 @@ public class MainView extends JFrame {
 
                 switch(selectedView) {
                     case "Overview":
-                        switchPanel(new OverviewView());
+                        switchPanel("Overview");
                         break;
                     case "Today":
-                        switchPanel(new TodayView());
+                        switchPanel("Today");
                         break;
                     case "Calendar":
-                        switchPanel(new CalendarView());
+                        switchPanel("Calender");
                         break;
                     case "Home":
-                        switchPanel(new JPanel());
+                        switchPanel("Home");
                         break;
                     default:
                         System.out.println("Main Panel Unknown");
@@ -79,7 +95,13 @@ public class MainView extends JFrame {
             }
         });
 
-        newTodoButton.addActionListener(e -> switchPanel(new NewTodoView()));
+        newTodoButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                newTodoView.setActiveIndex(-1);
+                switchPanel("NewTodo");
+            }
+        });
 
 
 
@@ -98,10 +120,17 @@ public class MainView extends JFrame {
         }
     }
 
-    public static void switchPanel(JPanel panel) {
-        main.removeAll();  // Entferne alle Panels
-        main.add(panel);    // Füge das neue Panel hinzu
-        main.revalidate();  // Layout neu validieren
-        main.repaint();     // Layout neu zeichnen
+    public static void switchPanel(String panel) {
+        cardLayout.show(main, panel);
+//        main.removeAll();  // Entferne alle Panels
+//        main.add(panel);    // Füge das neue Panel hinzu
+//        main.revalidate();  // Layout neu validieren
+//        main.repaint();     // Layout neu zeichnen
+    }
+
+    public static void refreshViews() {
+        overviewView.refreshData();
+        todayView.refreshData();
+//        calendarView.refreshData();
     }
 }
