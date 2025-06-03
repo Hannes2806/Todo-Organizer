@@ -4,7 +4,6 @@ import toDoOrganizer.data.Data;
 import toDoOrganizer.data.ToDo;
 import toDoOrganizer.gui.MainView;
 import toDoOrganizer.gui.NewTodoView;
-import toDoOrganizer.gui.OverviewView;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;

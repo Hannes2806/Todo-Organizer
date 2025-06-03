@@ -14,7 +14,7 @@ public class TodayController {
         TodayView.getTodayList().addListSelectionListener(e -> {
             if (e.getValueIsAdjusting()) {
                 int selectedIndex = data.getToDoList().indexOf(TodayView.getTodayList().getSelectedValue());
-                TodayView.getDetails().showDetails(selectedIndex);
+                TodayView.getDetailController().showDetails(selectedIndex);
             }
         });
     }

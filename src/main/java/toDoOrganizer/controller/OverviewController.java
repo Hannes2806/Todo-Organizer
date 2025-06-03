@@ -16,14 +16,14 @@ public class OverviewController {
         overviewView.getUrgentList().addListSelectionListener(e -> {
             if (e.getValueIsAdjusting()) {
                 int selectedIndex = data.getToDoList().indexOf(overviewView.getUrgentList().getSelectedValue());
-                overviewView.getDetails().showDetails(selectedIndex);
+                overviewView.getDetailController().showDetails(selectedIndex);
             }
         });
 
         overviewView.getNotUrgentList().addListSelectionListener(e -> {
             if (e.getValueIsAdjusting()) {
                 int selectedIndex = data.getToDoList().indexOf(overviewView.getNotUrgentList().getSelectedValue());
-                overviewView.getDetails().showDetails(selectedIndex);
+                overviewView.getDetailController().showDetails(selectedIndex);
             }
         });
     }

@@ -1,15 +1,9 @@
 package toDoOrganizer.gui;
 
 import toDoOrganizer.data.Data;
-import toDoOrganizer.data.ToDo;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
-import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.Date;
 
@@ -31,15 +25,6 @@ public class NewTodoView extends JPanel {
     private JButton toDoSaveButton;
 
     public NewTodoView() {
-        init();
-
-        //Anschließend actionListeners in controller auslagern
-        // - dazu Seitenaufruf im Card layout main optimieren
-
-        //Ist es schon drin, das Todo später automatisch urgent wird?
-    }
-
-    private void init() {
         setLayout(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
 
@@ -52,6 +37,8 @@ public class NewTodoView extends JPanel {
         initExpirySection(gbc);
         initCategorySection(gbc);
         initSaveSection(gbc);
+
+        //Ist es schon drin, das Todo später automatisch urgent wird?
     }
 
     private void initHeadingSection(GridBagConstraints gbc) {

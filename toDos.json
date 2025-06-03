@@ -20,7 +20,7 @@
   "category" : "Education"
 }, {
   "title" : "Permanentes Todo",
-  "description" : "Ein kreativer text",
+  "description" : "Ein kreativer ",
   "permanence" : true,
   "urgent" : true,
   "notUrgent" : false,
@@ -59,33 +59,13 @@
   "creationDate" : [ 2025, 6, 1 ],
   "category" : "Leisure"
 }, {
-  "title" : "Es gibt eis",
-  "description" : "Jau",
-  "permanence" : false,
-  "urgent" : false,
-  "notUrgent" : true,
-  "whenUrgent" : [ 2025, 6, 3 ],
-  "expiryDate" : [ 2025, 6, 3 ],
-  "creationDate" : [ 2025, 6, 3 ],
-  "category" : "Leisure"
-}, {
-  "title" : "Es gibt soße",
-  "description" : "fgdfg",
-  "permanence" : false,
-  "urgent" : false,
-  "notUrgent" : true,
-  "whenUrgent" : [ 2025, 6, 3 ],
-  "expiryDate" : [ 2025, 6, 3 ],
-  "creationDate" : [ 2025, 6, 3 ],
-  "category" : "Education"
-}, {
-  "title" : "Worksession dos my friend",
-  "description" : "Its going crazy\n",
-  "permanence" : false,
+  "title" : "Abendessen",
+  "description" : "Leckeres Abendessen immer",
+  "permanence" : true,
   "urgent" : true,
   "notUrgent" : false,
   "whenUrgent" : [ 2025, 6, 3 ],
   "expiryDate" : [ 2025, 6, 3 ],
   "creationDate" : [ 2025, 6, 3 ],
-  "category" : "Education"
+  "category" : "Leisure"
 } ]

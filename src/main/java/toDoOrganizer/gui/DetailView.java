@@ -1,13 +1,9 @@
 package toDoOrganizer.gui;
 
-import toDoOrganizer.controller.MainController;
 import toDoOrganizer.data.Data;
-import toDoOrganizer.data.ToDo;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class DetailView extends JPanel {
     private Data data = Data.getInstance();
@@ -42,49 +38,29 @@ public class DetailView extends JPanel {
         gbc.gridy = 3;
         this.deleteButton.setEnabled(false);
         add(this.deleteButton, gbc);
-
-        //Add action listeners
-
-        this.editButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                MainView.getNewTodoView().setActiveIndex(activeIndex);
-                MainView.getNewTodoView().prefillData(activeIndex);
-                MainController.switchPanel("NewTodo");
-            }
-        });
-
-        this.deleteButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                int confirm = JOptionPane.showConfirmDialog(
-                        activeSite,
-                        "Are you sure you want to delete: " + data.getToDoList().get(activeIndex).toString() + "?",
-                        "Confirmation",
-                        JOptionPane.YES_NO_OPTION
-                );
-
-                if (confirm == JOptionPane.YES_OPTION) {
-                    data.deleteToDo(activeIndex);
-                    MainController.refreshViews();
-                }
-            }
-        }
-        );
     }
 
-    public void showDetails(int index) {
-        this.activeIndex = index;
-        ToDo selected = data.getToDo(index);
-        this.detailsInfoText.setText(
-                "Title: " + selected.getTitle() + "\n" +
-                        "Description: " + selected.getDescription() + "\n" +
-                        "Expiry date: " + selected.getExpiryDate() + "\n" +
-                        "Is urgent: " + (selected.getUrgent() ? "Yes" : "No") + "\n" +
-                        "Is permanent: " + (selected.getPermanence() ? "Yes" : "No") + "\n" +
-                        "Category: " + selected.getCategory()
-        );
-        this.deleteButton.setEnabled(true);
-        this.editButton.setEnabled(true);
+    public JTextArea getDetailsInfoText() {
+        return detailsInfoText;
+    }
+
+    public JButton getEditButton() {
+        return editButton;
+    }
+
+    public JButton getDeleteButton() {
+        return deleteButton;
+    }
+
+    public int getActiveIndex() {
+        return activeIndex;
+    }
+
+    public void setActiveIndex(int activeIndex) {
+        this.activeIndex = activeIndex;
+    }
+
+    public JPanel getActiveSite() {
+        return activeSite;
     }
 }

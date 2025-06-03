@@ -1,21 +1,23 @@
 package toDoOrganizer.gui;
 
+import toDoOrganizer.controller.DetailController;
 import toDoOrganizer.data.Data;
 import toDoOrganizer.data.ToDo;
 
 import javax.swing.*;
 import java.awt.*;
 import java.time.LocalDate;
-import java.util.Collections;
 
 public class TodayView extends JPanel {
     private Data data = Data.getInstance();
     private static DefaultListModel todayListModel;
     private static JList<ToDo> todayList;
-    private static DetailView details;
+    private static DetailView detailView;
+    private static DetailController detailController;
 
     public TodayView() {
-        details = new DetailView(this);
+        detailView = new DetailView(this);
+        detailController = new DetailController(detailView);
         setLayout(new FlowLayout());
         JPanel todayPanel = new JPanel();
         todayPanel.setLayout(new GridBagLayout());
@@ -40,15 +42,7 @@ public class TodayView extends JPanel {
         todayPanel.add(todayScrollPane, gbc);
 
         add(todayPanel);
-        add(details);
-
-        //add detailView - action
-//        todayList.addListSelectionListener(e -> {
-//            if (e.getValueIsAdjusting()) {
-//                int selectedIndex = data.getToDoList().indexOf(todayList.getSelectedValue());
-//                details.showDetails(selectedIndex);
-//            }
-//        });
+        add(detailView);
     }
 
     public static DefaultListModel getTodayListModel() {
@@ -59,7 +53,7 @@ public class TodayView extends JPanel {
         return todayList;
     }
 
-    public static DetailView getDetails() {
-        return details;
+    public static DetailController getDetailController() {
+        return detailController;
     }
 }

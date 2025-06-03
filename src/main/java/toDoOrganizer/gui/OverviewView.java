@@ -1,11 +1,11 @@
 package toDoOrganizer.gui;
 
+import toDoOrganizer.controller.DetailController;
 import toDoOrganizer.data.Data;
 import toDoOrganizer.data.ToDo;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.Collections;
 
 public class OverviewView extends JPanel {
     private Data data = Data.getInstance();
@@ -16,10 +16,14 @@ public class OverviewView extends JPanel {
     private JList<ToDo> urgentList;
     private JList<ToDo> notUrgentList;
 
-    private DetailView details;
+    private DetailView detailView;
+    private DetailController detailController;
 
     public OverviewView() {
-        details = new DetailView(this);
+        detailView = new DetailView(this);
+        detailController = new DetailController(detailView);
+
+
         setLayout(new FlowLayout());
         JPanel overviewPanel = new JPanel(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
@@ -61,7 +65,7 @@ public class OverviewView extends JPanel {
 
 
         add(overviewPanel);
-        add(details);
+        add(detailView);
     }
 
     public DefaultListModel getUrgentListModel() {
@@ -80,7 +84,7 @@ public class OverviewView extends JPanel {
         return notUrgentList;
     }
 
-    public DetailView getDetails() {
-        return details;
+    public DetailController getDetailController() {
+        return detailController;
     }
 }
