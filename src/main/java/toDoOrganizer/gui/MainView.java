@@ -26,14 +26,20 @@ public class MainView extends JFrame {
     private static NewTodoController newTodoController;
 
     public MainView() {
-        //JFrame:
+        initJFrame();
+        initHeader();
+        initMain(); //Content with CardLayout
+    }
+
+    private void initJFrame() {
         setTitle("ToDo-Organizer");
         setSize(700, 700);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         setLayout(new BorderLayout(0, 0));
+    }
 
-        //Header:
+    private void initHeader() {
         header = new JPanel(new FlowLayout(FlowLayout.LEFT));
         //Page selection:
         String[] viewsArray = {"Overview", "Today", "Calendar", "Home"};
@@ -46,13 +52,22 @@ public class MainView extends JFrame {
         header.add(new JButton("?"));
         header.setBackground(new Color(53, 83, 184));
         add(header, BorderLayout.NORTH);
+    }
 
-        //Main:
+    private void initMain() {
         main = new JPanel();
         cardLayout = new CardLayout();
         main.setLayout(cardLayout);
 
+        initCards(); //Views + Controllers
+        addCards();
 
+        JScrollPane mainScrollPane = new JScrollPane(main);
+        mainScrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+        add(mainScrollPane, BorderLayout.CENTER);
+    }
+
+    private void initCards() {
         overviewView = new OverviewView();
         overviewController = new OverviewController(overviewView);
         todayView = new TodayView();
@@ -61,18 +76,14 @@ public class MainView extends JFrame {
         homeView = new HomeView();
         newTodoView = new NewTodoView();
         newTodoController = new NewTodoController(newTodoView);
+    }
 
-
+    private void addCards() {
         main.add(overviewView, "Overview");
         main.add(todayView, "Today");
         main.add(calendarView, "Calendar");
         main.add(homeView, "Home");
         main.add(newTodoView, "NewTodo");
-
-
-        JScrollPane mainScrollPane = new JScrollPane(main);
-        mainScrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
-        add(mainScrollPane, BorderLayout.CENTER);
     }
 
     static class BulletPointRenderer extends DefaultListCellRenderer {

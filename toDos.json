@@ -58,14 +58,4 @@
   "expiryDate" : [ 2025, 6, 3 ],
   "creationDate" : [ 2025, 6, 1 ],
   "category" : "Leisure"
-}, {
-  "title" : "Abendessen",
-  "description" : "Leckeres Abendessen immer",
-  "permanence" : true,
-  "urgent" : true,
-  "notUrgent" : false,
-  "whenUrgent" : [ 2025, 6, 3 ],
-  "expiryDate" : [ 2025, 6, 3 ],
-  "creationDate" : [ 2025, 6, 3 ],
-  "category" : "Leisure"
 } ]

@@ -14,24 +14,36 @@ public class TodayView extends JPanel {
     private static JList<ToDo> todayList;
     private static DetailView detailView;
     private static DetailController detailController;
+    private JPanel todayPanel;
 
     public TodayView() {
         detailView = new DetailView(this);
         detailController = new DetailController(detailView);
+
+        //init Layout, Todos today next to details
         setLayout(new FlowLayout());
-        JPanel todayPanel = new JPanel();
+        todayPanel = new JPanel();
         todayPanel.setLayout(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
-
-        //Today Overview
         gbc.insets = new Insets(10, 10, 10, 10); //distances
-        //Label Today:
+
+        //init todayPanel
+        initHeadline(gbc);
+        initScrollPane(gbc); //Todays Todos
+
+        add(todayPanel);
+        add(detailView);
+    }
+
+    private void initHeadline(GridBagConstraints gbc) {
         gbc.gridx = 0;
         gbc.gridy = 0;
         JLabel todayLabel = new JLabel("<html><u>Today:</u></html>");
         todayLabel.setFont(new Font("Arial", Font.BOLD, 18));
         todayPanel.add(todayLabel, gbc);
-        //Lists today and details
+    }
+
+    private void initScrollPane(GridBagConstraints gbc) {
         gbc.insets = new Insets(10, 10, 230, 10); //distances
         gbc.gridy = 1;
         todayListModel = data.filterDate(data.getToDoList(), LocalDate.now());
@@ -40,9 +52,6 @@ public class TodayView extends JPanel {
         JScrollPane todayScrollPane = new JScrollPane(todayList);
         todayScrollPane.setPreferredSize(new Dimension(300, 200)); //minimum width/height
         todayPanel.add(todayScrollPane, gbc);
-
-        add(todayPanel);
-        add(detailView);
     }
 
     public static DefaultListModel getTodayListModel() {
