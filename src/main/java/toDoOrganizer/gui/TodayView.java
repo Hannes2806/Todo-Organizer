@@ -10,10 +10,12 @@ import java.util.Collections;
 
 public class TodayView extends JPanel {
     private Data data = Data.getInstance();
-    private DefaultListModel todayListModel;
+    private static DefaultListModel todayListModel;
+    private static JList<ToDo> todayList;
+    private static DetailView details;
 
     public TodayView() {
-        DetailView details = new DetailView(this);
+        details = new DetailView(this);
         setLayout(new FlowLayout());
         JPanel todayPanel = new JPanel();
         todayPanel.setLayout(new GridBagLayout());
@@ -31,7 +33,7 @@ public class TodayView extends JPanel {
         gbc.insets = new Insets(10, 10, 230, 10); //distances
         gbc.gridy = 1;
         todayListModel = data.filterDate(data.getToDoList(), LocalDate.now());
-        JList<ToDo> todayList = new JList<>(todayListModel);
+        todayList = new JList<>(todayListModel);
         todayList.setCellRenderer(new MainView.BulletPointRenderer()); //integrate Bulletpoints
         JScrollPane todayScrollPane = new JScrollPane(todayList);
         todayScrollPane.setPreferredSize(new Dimension(300, 200)); //minimum width/height
@@ -40,17 +42,24 @@ public class TodayView extends JPanel {
         add(todayPanel);
         add(details);
 
-        //add details view - action
-        todayList.addListSelectionListener(e -> {
-            if (e.getValueIsAdjusting()) {
-                int selectedIndex = data.getToDoList().indexOf(todayList.getSelectedValue());
-                details.showDetails(selectedIndex);
-            }
-        });
+        //add detailView - action
+//        todayList.addListSelectionListener(e -> {
+//            if (e.getValueIsAdjusting()) {
+//                int selectedIndex = data.getToDoList().indexOf(todayList.getSelectedValue());
+//                details.showDetails(selectedIndex);
+//            }
+//        });
     }
 
-    public void refreshData() {
-        todayListModel.clear();
-        todayListModel.addAll(Collections.list(data.filterDate(data.getToDoList(), LocalDate.now()).elements()));
+    public static DefaultListModel getTodayListModel() {
+        return todayListModel;
+    }
+
+    public static JList<ToDo> getTodayList() {
+        return todayList;
+    }
+
+    public static DetailView getDetails() {
+        return details;
     }
 }

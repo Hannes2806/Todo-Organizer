@@ -70,9 +70,9 @@ public class NewTodoController {
                 else {
                     data.updateToDo(toDo, newTodoView.getActiveIndex());
                 }
-                MainView.newTodoView.clearData();
-                MainView.refreshViews();
-                MainView.switchPanel("Overview");
+                MainView.getNewTodoView().clearData();
+                MainController.refreshViews();
+                MainController.switchPanel("Overview");
             }
         });
     }

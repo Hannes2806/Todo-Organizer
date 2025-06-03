@@ -13,8 +13,13 @@ public class OverviewView extends JPanel {
     private DefaultListModel urgentListModel;
     private DefaultListModel notUrgentListModel;
 
+    private JList<ToDo> urgentList;
+    private JList<ToDo> notUrgentList;
+
+    private DetailView details;
+
     public OverviewView() {
-        DetailView details = new DetailView(this);
+        details = new DetailView(this);
         setLayout(new FlowLayout());
         JPanel overviewPanel = new JPanel(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
@@ -41,14 +46,14 @@ public class OverviewView extends JPanel {
         //Lists:
         gbc.gridy = 2;
         urgentListModel = data.filterUrgency(data.getToDoList(), true);
-        JList<ToDo> urgentList = new JList<>(urgentListModel);
+        urgentList = new JList<>(urgentListModel);
         urgentList.setCellRenderer(new MainView.BulletPointRenderer()); //integrate Bulletpoints
         JScrollPane urgentScrollPane = new JScrollPane(urgentList);
         urgentScrollPane.setPreferredSize(new Dimension(300, 200)); //minimum width/height
         overviewPanel.add(urgentScrollPane, gbc);
         gbc.gridy = 4;
         notUrgentListModel = data.filterUrgency(data.getToDoList(), false);
-        JList<ToDo> notUrgentList = new JList<>(notUrgentListModel);
+        notUrgentList = new JList<>(notUrgentListModel);
         notUrgentList.setCellRenderer(new MainView.BulletPointRenderer()); //integrate Bulletpoints
         JScrollPane notUrgentScrollPane = new JScrollPane(notUrgentList);
         notUrgentScrollPane.setPreferredSize(new Dimension(300, 200)); //minimum width/height
@@ -57,29 +62,25 @@ public class OverviewView extends JPanel {
 
         add(overviewPanel);
         add(details);
-
-        //add details view - action
-
-        urgentList.addListSelectionListener(e -> {
-            if (e.getValueIsAdjusting()) {
-                int selectedIndex = data.getToDoList().indexOf(urgentList.getSelectedValue());
-                details.showDetails(selectedIndex);
-            }
-        });
-
-        notUrgentList.addListSelectionListener(e -> {
-            if (e.getValueIsAdjusting()) {
-                int selectedIndex = data.getToDoList().indexOf(notUrgentList.getSelectedValue());
-                details.showDetails(selectedIndex);
-            }
-        });
-
     }
 
-    public void refreshData() {
-        urgentListModel.clear();
-        urgentListModel.addAll(Collections.list(data.filterUrgency(data.getToDoList(), true).elements()));
-        notUrgentListModel.clear();
-        notUrgentListModel.addAll(Collections.list(data.filterUrgency(data.getToDoList(), false).elements()));
+    public DefaultListModel getUrgentListModel() {
+        return urgentListModel;
+    }
+
+    public DefaultListModel getNotUrgentListModel() {
+        return notUrgentListModel;
+    }
+
+    public JList<ToDo> getUrgentList() {
+        return urgentList;
+    }
+
+    public JList<ToDo> getNotUrgentList() {
+        return notUrgentList;
+    }
+
+    public DetailView getDetails() {
+        return details;
     }
 }

@@ -8,6 +8,7 @@ public class AppController {
 
     public AppController() {
         view = new MainView();
+        new MainController(view);
     }
 
     public void startApp() {

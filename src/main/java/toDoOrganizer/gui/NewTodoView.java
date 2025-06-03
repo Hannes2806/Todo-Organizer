@@ -32,11 +32,6 @@ public class NewTodoView extends JPanel {
 
     public NewTodoView() {
         init();
-    }
-
-    public NewTodoView(int index) {
-//        activeIndex = index;
-//        init(activeIndex);
 
         //Anschließend actionListeners in controller auslagern
         // - dazu Seitenaufruf im Card layout main optimieren
@@ -57,10 +52,6 @@ public class NewTodoView extends JPanel {
         initExpirySection(gbc);
         initCategorySection(gbc);
         initSaveSection(gbc);
-
-//        if (activeIndex != -1) {
-//            prefillData(activeIndex);
-//        }
     }
 
     private void initHeadingSection(GridBagConstraints gbc) {

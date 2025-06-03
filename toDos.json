@@ -50,7 +50,7 @@
   "category" : "Work"
 }, {
   "title" : "Heute ist Sommerzeit",
-  "description" : "Warm und Toll jaiiii juju",
+  "description" : "Warm und Toll jaiiii juju hh ",
   "permanence" : false,
   "urgent" : true,
   "notUrgent" : false,
@@ -74,6 +74,16 @@
   "permanence" : false,
   "urgent" : false,
   "notUrgent" : true,
+  "whenUrgent" : [ 2025, 6, 3 ],
+  "expiryDate" : [ 2025, 6, 3 ],
+  "creationDate" : [ 2025, 6, 3 ],
+  "category" : "Education"
+}, {
+  "title" : "Worksession dos my friend",
+  "description" : "Its going crazy\n",
+  "permanence" : false,
+  "urgent" : true,
+  "notUrgent" : false,
   "whenUrgent" : [ 2025, 6, 3 ],
   "expiryDate" : [ 2025, 6, 3 ],
   "creationDate" : [ 2025, 6, 3 ],

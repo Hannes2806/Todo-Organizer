@@ -2,30 +2,30 @@ package toDoOrganizer.gui;
 
 import toDoOrganizer.controller.NewTodoController;
 import toDoOrganizer.controller.OverviewController;
-import toDoOrganizer.data.Data;
+import toDoOrganizer.controller.TodayController;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 
 public class MainView extends JFrame {
-    //MainView = Overview
-    //private AppController controller;
-    private Data data = Data.getInstance();
+    //MainView combines every view in one
     private static JPanel main, header;
 
+    private static JComboBox<String> viewsBox;
+    private static JButton newTodoButton;
+
     private static CardLayout cardLayout;
-    public static OverviewView overviewView;
-    public static TodayView todayView;
-    public static CalendarView calendarView;
+    private static OverviewView overviewView;
+    private static OverviewController overviewController;
+    private static TodayView todayView;
+    private static TodayController todayController;
+    private static CalendarView calendarView;
     private HomeView homeView;
-    public static NewTodoView newTodoView;
+    private static NewTodoView newTodoView;
+    private static NewTodoController newTodoController;
 
     public MainView() {
-        //this.controller = controller;
-
         //JFrame:
         setTitle("ToDo-Organizer");
         setSize(700, 700);
@@ -37,30 +37,30 @@ public class MainView extends JFrame {
         header = new JPanel(new FlowLayout(FlowLayout.LEFT));
         //Page selection:
         String[] viewsArray = {"Overview", "Today", "Calendar", "Home"};
-        JComboBox<String> viewsBox = new JComboBox<>(viewsArray);
+        viewsBox = new JComboBox<>(viewsArray);
         header.add(viewsBox);
 
-        JButton newTodoButton = new JButton("New Todo");
+        newTodoButton = new JButton("New Todo");
         header.add(newTodoButton);
         header.add(new JButton("Settings"));
         header.add(new JButton("?"));
         header.setBackground(new Color(53, 83, 184));
         add(header, BorderLayout.NORTH);
 
-
-
         //Main:
         main = new JPanel();
         cardLayout = new CardLayout();
         main.setLayout(cardLayout);
 
+
         overviewView = new OverviewView();
-//        new OverviewController(overviewView);
+        overviewController = new OverviewController(overviewView);
         todayView = new TodayView();
+        todayController = new TodayController(todayView);
         calendarView = new CalendarView();
         homeView = new HomeView();
         newTodoView = new NewTodoView();
-        new NewTodoController(newTodoView);
+        newTodoController = new NewTodoController(newTodoView);
 
 
         main.add(overviewView, "Overview");
@@ -68,42 +68,6 @@ public class MainView extends JFrame {
         main.add(calendarView, "Calendar");
         main.add(homeView, "Home");
         main.add(newTodoView, "NewTodo");
-
-
-        //Action listener header:
-        viewsBox.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                String selectedView = (String) viewsBox.getSelectedItem();
-
-                switch(selectedView) {
-                    case "Overview":
-                        switchPanel("Overview");
-                        break;
-                    case "Today":
-                        switchPanel("Today");
-                        break;
-                    case "Calendar":
-                        switchPanel("Calender");
-                        break;
-                    case "Home":
-                        switchPanel("Home");
-                        break;
-                    default:
-                        System.out.println("Main Panel Unknown");
-                }
-            }
-        });
-
-        newTodoButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                newTodoView.setActiveIndex(-1);
-                switchPanel("NewTodo");
-            }
-        });
-
-
 
 
         JScrollPane mainScrollPane = new JScrollPane(main);
@@ -120,17 +84,31 @@ public class MainView extends JFrame {
         }
     }
 
-    public static void switchPanel(String panel) {
-        cardLayout.show(main, panel);
-//        main.removeAll();  // Entferne alle Panels
-//        main.add(panel);    // Füge das neue Panel hinzu
-//        main.revalidate();  // Layout neu validieren
-//        main.repaint();     // Layout neu zeichnen
+    public static JPanel getMain() {
+        return main;
     }
 
-    public static void refreshViews() {
-        overviewView.refreshData();
-        todayView.refreshData();
-//        calendarView.refreshData();
+    public static CardLayout getCardLayout() {
+        return cardLayout;
+    }
+
+    public static NewTodoView getNewTodoView() {
+        return newTodoView;
+    }
+
+    public static JComboBox<String> getViewsBox() {
+        return viewsBox;
+    }
+
+    public static JButton getNewTodoButton() {
+        return newTodoButton;
+    }
+
+    public static OverviewController getOverviewController() {
+        return overviewController;
+    }
+
+    public static TodayController getTodayController() {
+        return todayController;
     }
 }

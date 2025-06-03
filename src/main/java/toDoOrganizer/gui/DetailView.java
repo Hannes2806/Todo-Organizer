@@ -1,5 +1,6 @@
 package toDoOrganizer.gui;
 
+import toDoOrganizer.controller.MainController;
 import toDoOrganizer.data.Data;
 import toDoOrganizer.data.ToDo;
 
@@ -47,9 +48,9 @@ public class DetailView extends JPanel {
         this.editButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                MainView.newTodoView.setActiveIndex(activeIndex);
-                MainView.newTodoView.prefillData(activeIndex);
-                MainView.switchPanel("NewTodo");
+                MainView.getNewTodoView().setActiveIndex(activeIndex);
+                MainView.getNewTodoView().prefillData(activeIndex);
+                MainController.switchPanel("NewTodo");
             }
         });
 
@@ -65,24 +66,12 @@ public class DetailView extends JPanel {
 
                 if (confirm == JOptionPane.YES_OPTION) {
                     data.deleteToDo(activeIndex);
-                    MainView.refreshViews();
+                    MainController.refreshViews();
                 }
             }
         }
         );
     }
-
-//    private void renewPanel(String siteName) {
-//        switch (siteName) {
-//            case "OverviewView":
-//                MainView.switchPanel("Overview");
-//            case "TodayView":
-//                MainView.switchPanel("Today");
-//            default:
-//                MainView.switchPanel("Overview");
-//        }
-//    }
-
 
     public void showDetails(int index) {
         this.activeIndex = index;
