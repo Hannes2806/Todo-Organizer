@@ -39,16 +39,6 @@
   "creationDate" : [ 2025, 5, 31 ],
   "category" : "Education"
 }, {
-  "title" : "Cathegory Todo",
-  "description" : "Mal eine andere Kategorie",
-  "permanence" : true,
-  "urgent" : false,
-  "notUrgent" : true,
-  "whenUrgent" : [ 2025, 5, 31 ],
-  "expiryDate" : [ 2025, 5, 31 ],
-  "creationDate" : [ 2025, 5, 31 ],
-  "category" : "Work"
-}, {
   "title" : "Heute ist Sommerzeit",
   "description" : "Warm und Toll jaiiii juju hh ",
   "permanence" : false,
@@ -57,5 +47,15 @@
   "whenUrgent" : [ 2025, 6, 1 ],
   "expiryDate" : [ 2025, 6, 3 ],
   "creationDate" : [ 2025, 6, 1 ],
+  "category" : "Leisure"
+}, {
+  "title" : "Abendessen",
+  "description" : "mit Paul heute",
+  "permanence" : false,
+  "urgent" : false,
+  "notUrgent" : true,
+  "whenUrgent" : [ 2025, 6, 8 ],
+  "expiryDate" : [ 2025, 6, 8 ],
+  "creationDate" : [ 2025, 6, 3 ],
   "category" : "Leisure"
 } ]

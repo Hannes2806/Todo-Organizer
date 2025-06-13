@@ -1,11 +1,13 @@
 package toDoOrganizer.gui;
 
+import toDoOrganizer.controller.CalendarController;
 import toDoOrganizer.controller.NewTodoController;
 import toDoOrganizer.controller.OverviewController;
 import toDoOrganizer.controller.TodayController;
 
 import javax.swing.*;
 import java.awt.*;
+import java.time.LocalDate;
 
 
 public class MainView extends JFrame {
@@ -21,6 +23,7 @@ public class MainView extends JFrame {
     private static TodayView todayView;
     private static TodayController todayController;
     private static CalendarView calendarView;
+    private static CalendarController calendarController;
     private HomeView homeView;
     private static NewTodoView newTodoView;
     private static NewTodoController newTodoController;
@@ -72,7 +75,8 @@ public class MainView extends JFrame {
         overviewController = new OverviewController(overviewView);
         todayView = new TodayView();
         todayController = new TodayController(todayView);
-        calendarView = new CalendarView();
+        calendarView = new CalendarView(LocalDate.now().getMonthValue(), LocalDate.now().getYear());
+        calendarController = new CalendarController(calendarView);
         homeView = new HomeView();
         newTodoView = new NewTodoView();
         newTodoController = new NewTodoController(newTodoView);

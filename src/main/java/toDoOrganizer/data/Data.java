@@ -128,4 +128,10 @@ public class Data {
     public ToDo getToDo(int index) {
         return toDoList.get(index);
     }
+
+    public int countToDos(int day, int month, int year) {
+        LocalDate date = LocalDate.of(year, month, day);
+        DefaultListModel<ToDo> filteredList = filterDate(getToDoList(), date);
+        return filteredList.getSize();
+    }
 }

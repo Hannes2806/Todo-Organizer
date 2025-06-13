@@ -24,7 +24,7 @@ public class MainController {
                         switchPanel("Today");
                         break;
                     case "Calendar":
-                        switchPanel("Calender");
+                        switchPanel("Calendar");
                         break;
                     case "Home":
                         switchPanel("Home");
