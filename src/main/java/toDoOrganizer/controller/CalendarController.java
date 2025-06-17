@@ -2,6 +2,8 @@ package toDoOrganizer.controller;
 
 import toDoOrganizer.data.Data;
 import toDoOrganizer.gui.CalendarView;
+import toDoOrganizer.gui.DayLabel;
+import toDoOrganizer.gui.MainView;
 import toDoOrganizer.gui.TodayView;
 
 import javax.swing.*;
@@ -15,7 +17,7 @@ import java.util.Collections;
 public class CalendarController {
     Data data = Data.getInstance();
     private CalendarView calendarView;
-    private DefaultListModel<JLabel> oldDaysWithTodosLabelListModel = new DefaultListModel<>();
+    private DefaultListModel<DayLabel> oldDaysWithTodosLabelListModel = new DefaultListModel<>();
 
     public CalendarController(CalendarView view) {
         calendarView = view;
@@ -24,7 +26,7 @@ public class CalendarController {
 
     private void addListeners() {
         for (int i = 0; i < calendarView.getDaysWithTodosLabelListModel().getSize(); i++) {
-            JLabel dayLabel = calendarView.getDaysWithTodosLabelListModel().getElementAt(i);
+            DayLabel dayLabel = calendarView.getDaysWithTodosLabelListModel().getElementAt(i);
             if (!oldDaysWithTodosLabelListModel.contains(dayLabel)) {
                 addListener(dayLabel);
             } //only if it is a new day with Todos
@@ -32,11 +34,14 @@ public class CalendarController {
         oldDaysWithTodosLabelListModel = calendarView.getDaysWithTodosLabelListModel();
     }
 
-    private void addListener(JLabel dayLabel) {
+    private void addListener(DayLabel dayLabel) {
         dayLabel.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-
+                //date attribute from new class DayLabel
+                MainView.getTodayView().setActiveDate(dayLabel.getDate());
+                MainView.getTodayController().refreshData();
+                MainController.switchPanel("Today");
             }
 
             @Override

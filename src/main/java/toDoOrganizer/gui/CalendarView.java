@@ -10,8 +10,8 @@ import java.util.Calendar;
 
 public class CalendarView extends JPanel {
     private Data data = Data.getInstance();
-    private DefaultListModel<JLabel> daysLabelListModel;
-    private DefaultListModel<JLabel> daysWithTodosLabelListModel;
+    private DefaultListModel<DayLabel> daysLabelListModel;
+    private DefaultListModel<DayLabel> daysWithTodosLabelListModel;
     private int startDay;
     private int daysInMonth;
     private int activeMonth;
@@ -50,7 +50,7 @@ public class CalendarView extends JPanel {
         addEmptyLabels();
         //init days on calendar
         for (int day = 1; day <= daysInMonth; day++) {
-            JLabel dayLabel = new JLabel();
+            DayLabel dayLabel = new DayLabel(day, activeMonth, activeYear);
             setDesign(dayLabel, day);
             checkTodos(dayLabel, day);
             daysLabelListModel.addElement(dayLabel);
@@ -66,7 +66,7 @@ public class CalendarView extends JPanel {
         }
     }
 
-    private void setDesign(JLabel dayLabel, int day) {
+    private void setDesign(DayLabel dayLabel, int day) {
         dayLabel.setVerticalAlignment(SwingConstants.TOP);
         dayLabel.setHorizontalAlignment(SwingConstants.CENTER);
         dayLabel.setFont(new Font("Arial", Font.PLAIN, 14));
@@ -77,7 +77,7 @@ public class CalendarView extends JPanel {
         }
     }
 
-    private void checkTodos(JLabel dayLabel, int day) {
+    private void checkTodos(DayLabel dayLabel, int day) {
         int numberTodos = data.countToDos(day, activeMonth, activeYear);
         dayLabel.setText("<html>" + String.valueOf(day) + "<br><br>(" + numberTodos + " Todos)<html>" );
         //color if day have Todos
@@ -94,17 +94,17 @@ public class CalendarView extends JPanel {
     public void refreshView() {
         for (int i = 0; i < daysLabelListModel.getSize(); i++) {
             int day = i + 1;
-            JLabel dayLabel = daysLabelListModel.getElementAt(i);
+            DayLabel dayLabel = daysLabelListModel.getElementAt(i);
             checkTodos(dayLabel, day);
         }
     }
 
 
-    public DefaultListModel<JLabel> getDaysLabelListModel() {
+    public DefaultListModel<DayLabel> getDaysLabelListModel() {
         return daysLabelListModel;
     }
 
-    public DefaultListModel<JLabel> getDaysWithTodosLabelListModel() {
+    public DefaultListModel<DayLabel> getDaysWithTodosLabelListModel() {
         return daysWithTodosLabelListModel;
     }
 

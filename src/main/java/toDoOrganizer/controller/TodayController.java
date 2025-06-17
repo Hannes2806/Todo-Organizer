@@ -8,8 +8,10 @@ import java.util.Collections;
 
 public class TodayController {
     Data data = Data.getInstance();
+    private TodayView todayView;
 
-    public TodayController(TodayView todayView) {
+    public TodayController(TodayView view) {
+        todayView = view;
         //add detailView - action
         TodayView.getTodayList().addListSelectionListener(e -> {
             if (e.getValueIsAdjusting()) {
@@ -21,7 +23,7 @@ public class TodayController {
 
     public void refreshData() {
         TodayView.getTodayListModel().clear();
-        TodayView.getTodayListModel().addAll(Collections.list(data.filterDate(data.getToDoList(), LocalDate.now()).elements()));
+        TodayView.getTodayListModel().addAll(Collections.list(data.filterDate(data.getToDoList(), todayView.getActiveDate()).elements()));
     }
 
 }

@@ -111,6 +111,10 @@ public class MainView extends JFrame {
         return newTodoView;
     }
 
+    public static TodayView getTodayView() {
+        return todayView;
+    }
+
     public static JComboBox<String> getViewsBox() {
         return viewsBox;
     }

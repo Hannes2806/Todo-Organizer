@@ -2,9 +2,11 @@ package toDoOrganizer.controller;
 
 import toDoOrganizer.data.Data;
 import toDoOrganizer.gui.MainView;
+import toDoOrganizer.gui.TodayView;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.time.LocalDate;
 
 public class MainController {
     Data data = Data.getInstance();
@@ -21,6 +23,8 @@ public class MainController {
                         switchPanel("Overview");
                         break;
                     case "Today":
+                        MainView.getTodayView().setActiveDate(LocalDate.now());
+                        MainView.getTodayController().refreshData();
                         switchPanel("Today");
                         break;
                     case "Calendar":

@@ -14,11 +14,13 @@ public class TodayView extends JPanel {
     private static JList<ToDo> todayList;
     private static DetailView detailView;
     private static DetailController detailController;
+    private LocalDate activeDate;
     private JPanel todayPanel;
 
     public TodayView() {
         detailView = new DetailView(this);
         detailController = new DetailController(detailView);
+        activeDate = LocalDate.now();
 
         //init Layout, Todos today next to details
         setLayout(new FlowLayout());
@@ -46,7 +48,7 @@ public class TodayView extends JPanel {
     private void initScrollPane(GridBagConstraints gbc) {
         gbc.insets = new Insets(10, 10, 230, 10); //distances
         gbc.gridy = 1;
-        todayListModel = data.filterDate(data.getToDoList(), LocalDate.now());
+        todayListModel = data.filterDate(data.getToDoList(), activeDate);
         todayList = new JList<>(todayListModel);
         todayList.setCellRenderer(new MainView.BulletPointRenderer()); //integrate Bulletpoints
         JScrollPane todayScrollPane = new JScrollPane(todayList);
@@ -64,5 +66,13 @@ public class TodayView extends JPanel {
 
     public static DetailController getDetailController() {
         return detailController;
+    }
+
+    public LocalDate getActiveDate() {
+        return activeDate;
+    }
+
+    public void setActiveDate(LocalDate date) {
+        activeDate = date;
     }
 }
