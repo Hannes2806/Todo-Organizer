@@ -126,4 +126,8 @@ public class MainView extends JFrame {
     public static TodayController getTodayController() {
         return todayController;
     }
+
+    public static CalendarController getCalendarController() {
+        return calendarController;
+    }
 }

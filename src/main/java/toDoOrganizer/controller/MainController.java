@@ -55,7 +55,7 @@ public class MainController {
     public static void refreshViews() {
         MainView.getOverviewController().refreshData();
         MainView.getTodayController().refreshData();
-//        calendarView.refreshData();
+        MainView.getCalendarController().refreshData();
     }
 
 }

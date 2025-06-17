@@ -58,4 +58,24 @@
   "expiryDate" : [ 2025, 6, 8 ],
   "creationDate" : [ 2025, 6, 3 ],
   "category" : "Leisure"
+}, {
+  "title" : "Sauber machen",
+  "description" : "Durchwischen",
+  "permanence" : false,
+  "urgent" : true,
+  "notUrgent" : false,
+  "whenUrgent" : [ 2025, 6, 13 ],
+  "expiryDate" : [ 2025, 6, 13 ],
+  "creationDate" : [ 2025, 6, 13 ],
+  "category" : "Education"
+}, {
+  "title" : "hfgjfhjf",
+  "description" : "jgfjgjfhj",
+  "permanence" : false,
+  "urgent" : false,
+  "notUrgent" : true,
+  "whenUrgent" : [ 2025, 6, 17 ],
+  "expiryDate" : [ 2025, 6, 17 ],
+  "creationDate" : [ 2025, 6, 17 ],
+  "category" : "Education"
 } ]
