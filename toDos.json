@@ -69,23 +69,13 @@
   "creationDate" : [ 2025, 6, 17 ],
   "category" : "Education"
 }, {
-  "title" : "Todo das am 18. urgent wird",
-  "description" : "Ja",
+  "title" : "ghgh",
+  "description" : "gh",
   "permanence" : false,
-  "urgent" : false,
-  "notUrgent" : true,
+  "urgent" : true,
+  "notUrgent" : false,
   "whenUrgent" : [ 2025, 6, 18 ],
-  "expiryDate" : [ 2025, 6, 19 ],
-  "creationDate" : [ 2025, 6, 17 ],
-  "category" : "Education"
-}, {
-  "title" : "Texst",
-  "description" : "fgdfgdfg",
-  "permanence" : false,
-  "urgent" : false,
-  "notUrgent" : true,
-  "whenUrgent" : [ 2025, 6, 17 ],
-  "expiryDate" : [ 2025, 6, 21 ],
-  "creationDate" : [ 2025, 6, 17 ],
+  "expiryDate" : [ 2025, 6, 18 ],
+  "creationDate" : [ 2025, 6, 18 ],
   "category" : "Education"
 } ]

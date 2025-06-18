@@ -87,6 +87,13 @@ public class CalendarView extends JPanel {
             if (!daysWithTodosLabelListModel.contains(dayLabel)) {
                 daysWithTodosLabelListModel.addElement(dayLabel);
             }
+        } //if day no todo anymore remove label from list
+        else if (numberTodos == 0) {
+            dayLabel.setOpaque(false);
+            dayLabel.setBackground(new Color(255, 255, 255));
+            if (daysWithTodosLabelListModel.contains(dayLabel)) {
+                daysWithTodosLabelListModel.removeElement(dayLabel);
+            }
         }
 
     }
