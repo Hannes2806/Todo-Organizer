@@ -1,8 +1,11 @@
 package toDoOrganizer.controller;
 
 import toDoOrganizer.data.Data;
+import toDoOrganizer.gui.MainView;
 import toDoOrganizer.gui.TodayView;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.time.LocalDate;
 import java.util.Collections;
 
@@ -13,17 +16,28 @@ public class TodayController {
     public TodayController(TodayView view) {
         todayView = view;
         //add detailView - action
-        TodayView.getTodayList().addListSelectionListener(e -> {
+        todayView.getTodayList().addListSelectionListener(e -> {
             if (e.getValueIsAdjusting()) {
-                int selectedIndex = data.getToDoList().indexOf(TodayView.getTodayList().getSelectedValue());
-                TodayView.getDetailController().showDetails(selectedIndex);
+                int selectedIndex = data.getToDoList().indexOf(todayView.getTodayList().getSelectedValue());
+                todayView.getDetailController().showDetails(selectedIndex);
+            }
+        });
+
+        todayView.getCalendarButton().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                MainController.switchPanel("Calendar");
             }
         });
     }
 
     public void refreshData() {
-        TodayView.getTodayListModel().clear();
-        TodayView.getTodayListModel().addAll(Collections.list(data.filterDate(data.getToDoList(), todayView.getActiveDate()).elements()));
+        todayView.getTodayLabel().setText("<html><u>Todos on: " + todayView.getActiveDate() + "</u></html>");
+        todayView.getTodayListModel().clear();
+        todayView.getTodayListModel().addAll(Collections.list(data.filterDate(data.getToDoList(), todayView.getActiveDate()).elements()));
+
+    //Die Überschrift soll das aktivierte Datum sein
+
     }
 
 }

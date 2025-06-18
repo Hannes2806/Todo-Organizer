@@ -4,15 +4,11 @@ import toDoOrganizer.data.Data;
 import toDoOrganizer.gui.CalendarView;
 import toDoOrganizer.gui.DayLabel;
 import toDoOrganizer.gui.MainView;
-import toDoOrganizer.gui.TodayView;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.time.LocalDate;
-import java.util.Calendar;
-import java.util.Collections;
 
 public class CalendarController {
     Data data = Data.getInstance();
@@ -27,7 +23,7 @@ public class CalendarController {
     private void addListeners() {
         for (int i = 0; i < calendarView.getDaysWithTodosLabelListModel().getSize(); i++) {
             DayLabel dayLabel = calendarView.getDaysWithTodosLabelListModel().getElementAt(i);
-            if (!oldDaysWithTodosLabelListModel.contains(dayLabel)) {
+            if (!containsDayLabel(oldDaysWithTodosLabelListModel, dayLabel)) {
                 addListener(dayLabel);
             } //only if it is a new day with Todos
         }
@@ -54,8 +50,10 @@ public class CalendarController {
                 dayLabel.setBackground(new Color(173, 216, 230));
             }
         });
+    }
 
-
+    private boolean containsDayLabel(DefaultListModel<DayLabel> oldDaysWithTodosLabelListModel, DayLabel dayLabel) {
+        //
     }
 
     public void refreshData() {

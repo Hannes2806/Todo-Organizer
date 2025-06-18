@@ -32,6 +32,7 @@ public class Data {
 
         mapper.registerModule(new JavaTimeModule());
         this.toDoList = load();
+        updateData();
     }
 
     private void setCathegoryArray() {
@@ -57,6 +58,16 @@ public class Data {
         } catch (Exception e) {
             System.err.println("load falure: " + e.getMessage());
             return new ArrayList<>();
+        }
+    }
+
+    private void updateData() {
+        for (ToDo toDo : toDoList) {
+            LocalDate whenUrgent = toDo.getWhenUrgent();
+            if (whenUrgent.isBefore(LocalDate.now()) || whenUrgent.isEqual(LocalDate.now())) {
+                toDo.setUrgent(true);
+                toDo.setNotUrgent(false);
+            }
         }
     }
 

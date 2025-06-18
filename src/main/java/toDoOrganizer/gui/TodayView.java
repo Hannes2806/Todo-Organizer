@@ -10,10 +10,12 @@ import java.time.LocalDate;
 
 public class TodayView extends JPanel {
     private Data data = Data.getInstance();
-    private static DefaultListModel todayListModel;
-    private static JList<ToDo> todayList;
-    private static DetailView detailView;
-    private static DetailController detailController;
+    private JLabel todayLabel;
+    private JButton calendarButton;
+    private DefaultListModel todayListModel;
+    private JList<ToDo> todayList;
+    private DetailView detailView;
+    private DetailController detailController;
     private LocalDate activeDate;
     private JPanel todayPanel;
 
@@ -28,25 +30,25 @@ public class TodayView extends JPanel {
         todayPanel.setLayout(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.insets = new Insets(10, 10, 10, 10); //distances
+        gbc.gridx = 0;
 
         //init todayPanel
         initHeadline(gbc);
         initScrollPane(gbc); //Todays Todos
+        initCalendarButton(gbc);
 
         add(todayPanel);
         add(detailView);
     }
 
     private void initHeadline(GridBagConstraints gbc) {
-        gbc.gridx = 0;
         gbc.gridy = 0;
-        JLabel todayLabel = new JLabel("<html><u>Today:</u></html>");
+        todayLabel = new JLabel("<html><u>Todos on: " + activeDate + "</u></html>");
         todayLabel.setFont(new Font("Arial", Font.BOLD, 18));
         todayPanel.add(todayLabel, gbc);
     }
 
     private void initScrollPane(GridBagConstraints gbc) {
-        gbc.insets = new Insets(10, 10, 230, 10); //distances
         gbc.gridy = 1;
         todayListModel = data.filterDate(data.getToDoList(), activeDate);
         todayList = new JList<>(todayListModel);
@@ -56,15 +58,30 @@ public class TodayView extends JPanel {
         todayPanel.add(todayScrollPane, gbc);
     }
 
-    public static DefaultListModel getTodayListModel() {
+    private void initCalendarButton(GridBagConstraints gbc) {
+        gbc.insets = new Insets(10, 10, 185, 10); //distances
+        gbc.gridy = 2;
+        calendarButton = new JButton("<- Back to calendar");
+        todayPanel.add(calendarButton, gbc);
+    }
+
+    public JLabel getTodayLabel() {
+        return todayLabel;
+    }
+
+    public JButton getCalendarButton() {
+        return calendarButton;
+    }
+
+    public DefaultListModel getTodayListModel() {
         return todayListModel;
     }
 
-    public static JList<ToDo> getTodayList() {
+    public JList<ToDo> getTodayList() {
         return todayList;
     }
 
-    public static DetailController getDetailController() {
+    public DetailController getDetailController() {
         return detailController;
     }
 
