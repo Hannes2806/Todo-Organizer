@@ -61,7 +61,7 @@ public class TodayView extends JPanel {
     private void initCalendarButton(GridBagConstraints gbc) {
         gbc.insets = new Insets(10, 10, 185, 10); //distances
         gbc.gridy = 2;
-        calendarButton = new JButton("<- Back to calendar");
+        calendarButton = new JButton("<- To calendar");
         todayPanel.add(calendarButton, gbc);
     }
 

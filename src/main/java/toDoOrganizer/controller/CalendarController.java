@@ -7,9 +7,7 @@ import toDoOrganizer.gui.MainView;
 
 import javax.swing.*;
 import java.awt.Color;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
+import java.awt.event.*;
 import java.util.*;
 
 public class CalendarController {
@@ -20,10 +18,44 @@ public class CalendarController {
 
     public CalendarController(CalendarView view) {
         calendarView = view;
-        addListeners();
+        addHeadListenders();
+        addCalendarListeners();
     }
 
-    private void addListeners() {
+    private void addHeadListenders() {
+        calendarView.getMonthBackButton().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int activeMonth = calendarView.getActiveMonth();
+                int activeYear = calendarView.getActiveYear();
+                activeMonth--;
+                if (activeMonth == 0) {
+                    activeMonth = 12;
+                    activeYear--;
+                }
+                calendarView.setActiveMonth(activeMonth);
+                calendarView.setActiveYear(activeYear);
+                renewData();
+            }
+        });
+        calendarView.getMonthForthButton().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int activeMonth = calendarView.getActiveMonth();
+                int activeYear = calendarView.getActiveYear();
+                activeMonth++;
+                if (activeMonth == 13) {
+                    activeMonth = 1;
+                    activeYear++;
+                }
+                calendarView.setActiveMonth(activeMonth);
+                calendarView.setActiveYear(activeYear);
+                renewData();
+            }
+        });
+    }
+
+    private void addCalendarListeners() {
         DefaultListModel<DayLabel> labelListCopy = calendarView.getDaysWithTodosLabelListModel();
         DefaultListModel<DayLabel> oldAndNewLabels = getOldAndNewLabels(labelListCopy, oldDaysWithTodosLabelListModel);
         DefaultListModel<DayLabel> removedLabels = getReferenceDifference(labelListCopy, oldDaysWithTodosLabelListModel);
@@ -109,10 +141,17 @@ public class CalendarController {
     public void refreshData() {
         //leave month and year as it was
         calendarView.refreshView();
-        addListeners();
+        addCalendarListeners();
         calendarView.revalidate();
         calendarView.repaint();
+    }
 
+    private void renewData() {
+        //after month has changed
+        calendarView.renewView();
+        addCalendarListeners();
+        calendarView.revalidate();
+        calendarView.repaint();
     }
 
 }

@@ -69,13 +69,13 @@
   "creationDate" : [ 2025, 6, 17 ],
   "category" : "Education"
 }, {
-  "title" : "ghgh",
-  "description" : "gh",
+  "title" : "nelly zeigen",
+  "description" : "beschreibung",
   "permanence" : false,
   "urgent" : true,
   "notUrgent" : false,
-  "whenUrgent" : [ 2025, 6, 18 ],
-  "expiryDate" : [ 2025, 6, 18 ],
-  "creationDate" : [ 2025, 6, 18 ],
+  "whenUrgent" : [ 2025, 6, 20 ],
+  "expiryDate" : [ 2025, 6, 21 ],
+  "creationDate" : [ 2025, 6, 19 ],
   "category" : "Education"
 } ]

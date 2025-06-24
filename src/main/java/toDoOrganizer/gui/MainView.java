@@ -16,6 +16,8 @@ public class MainView extends JFrame {
 
     private static JComboBox<String> viewsBox;
     private static JButton newTodoButton;
+    private static JButton settingsButton;
+    private static JButton infoButton;
 
     private static CardLayout cardLayout;
     private static OverviewView overviewView;
@@ -51,8 +53,10 @@ public class MainView extends JFrame {
 
         newTodoButton = new JButton("New Todo");
         header.add(newTodoButton);
-        header.add(new JButton("Settings"));
-        header.add(new JButton("?"));
+        settingsButton = new JButton("Settings");
+        header.add(settingsButton);
+        infoButton = new JButton("?");
+        header.add(infoButton);
         header.setBackground(new Color(53, 83, 184));
         add(header, BorderLayout.NORTH);
     }
@@ -121,6 +125,14 @@ public class MainView extends JFrame {
 
     public static JButton getNewTodoButton() {
         return newTodoButton;
+    }
+
+    public static JButton getSettingsButton() {
+        return settingsButton;
+    }
+
+    public static JButton getInfoButton() {
+        return infoButton;
     }
 
     public static OverviewController getOverviewController() {

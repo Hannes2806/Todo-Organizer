@@ -5,13 +5,21 @@ import toDoOrganizer.data.Data;
 import javax.swing.*;
 import java.awt.*;
 import java.time.LocalDate;
+import java.time.Month;
+import java.time.Year;
 import java.time.YearMonth;
 import java.util.Calendar;
+
+import static javax.swing.BoxLayout.Y_AXIS;
 
 public class CalendarView extends JPanel {
     private Data data = Data.getInstance();
     private DefaultListModel<DayLabel> daysLabelListModel;
     private DefaultListModel<DayLabel> daysWithTodosLabelListModel;
+    private JLabel monthLabel;
+    private JPanel calendarPanel;
+    private JButton monthBackButton;
+    private JButton monthForthButton;
     private int startDay;
     private int daysInMonth;
     private int activeMonth;
@@ -24,20 +32,47 @@ public class CalendarView extends JPanel {
         activeYear = year;
 
         //init Layout
-        setLayout(new GridLayout(0, 7)); // 7 Spalten für Wochentage
+        setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+
+        calendarPanel = new JPanel();
+        calendarPanel.setLayout(new GridLayout(0, 7)); // 7 Spalten für Wochentage
 
         inithead();
         getMonthData();
         initCalendarDays();
+        add(calendarPanel);
     }
 
     private void inithead() {
+        //month
+        JPanel monthPanel = new JPanel();
+        monthPanel.setLayout(new FlowLayout());
+        monthBackButton = new JButton("<<");
+        monthForthButton = new JButton(">>");
+        monthLabel = new JLabel();
+        setText(monthLabel);
+        monthLabel.setFont(new Font("Arial", Font.PLAIN, 24));
+        monthPanel.setMaximumSize(new Dimension(Integer.MAX_VALUE, monthPanel.getPreferredSize().height));
+        monthPanel.add(monthBackButton);
+        monthPanel.add(monthLabel);
+        monthPanel.add(monthForthButton);
+        add(monthPanel);
+        //days
+        addDays();
+
+    }
+
+    private void addDays() {
         String[] days = {"So", "Mo", "Di", "Mi", "Do", "Fr", "Sa"};
         for (String day : days) {
             JLabel daysLabel = new JLabel(day, SwingConstants.CENTER);
             daysLabel.setFont(new Font("Arial", Font.PLAIN, 18));
-            add(daysLabel);
+            calendarPanel.add(daysLabel);
         }
+    }
+
+    private void setText(JLabel monthLabel) {
+        monthLabel.setText("<html>" + Month.of(activeMonth).name() + " " + activeYear + "</html>");
     }
 
     private void getMonthData() {
@@ -54,7 +89,7 @@ public class CalendarView extends JPanel {
             setDesign(dayLabel, day);
             checkTodos(dayLabel, day);
             daysLabelListModel.addElement(dayLabel);
-            add(dayLabel);
+            calendarPanel.add(dayLabel);
         }
     }
 
@@ -62,7 +97,7 @@ public class CalendarView extends JPanel {
         for (int i = 0; i < startDay; i++) {
             JLabel emptyLabel = new JLabel("");
 //            daysLabelListModel.addElement(emptyLabel);
-            add(emptyLabel); //empty Labels before day 1
+            calendarPanel.add(emptyLabel); //empty Labels before day 1
         }
     }
 
@@ -106,6 +141,18 @@ public class CalendarView extends JPanel {
         }
     }
 
+    public void renewView() {
+        setText(monthLabel);
+
+        calendarPanel.removeAll();
+        daysLabelListModel.clear();
+        daysWithTodosLabelListModel.clear();
+        addDays();
+        getMonthData();
+        initCalendarDays();
+
+    }
+
 
     public DefaultListModel<DayLabel> getDaysLabelListModel() {
         return daysLabelListModel;
@@ -113,6 +160,14 @@ public class CalendarView extends JPanel {
 
     public DefaultListModel<DayLabel> getDaysWithTodosLabelListModel() {
         return daysWithTodosLabelListModel;
+    }
+
+    public JButton getMonthBackButton() {
+        return monthBackButton;
+    }
+
+    public JButton getMonthForthButton() {
+        return monthForthButton;
     }
 
     public int getActiveMonth() {
