@@ -145,4 +145,10 @@ public class Data {
         DefaultListModel<ToDo> filteredList = filterDate(getToDoList(), date);
         return filteredList.getSize();
     }
+
+    public void deleteToDoList() {
+        toDoList = new ArrayList<>();
+        save(this.toDoList);
+        System.out.println("ToDo-List deleted.");
+    }
 }

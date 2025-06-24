@@ -1,81 +1,11 @@
 [ {
-  "title" : "Haus Bauen",
-  "description" : "Ein schönes Haus errichten",
+  "title" : "Wäsche abhängen",
+  "description" : "abhängen und zusammenlegen",
   "permanence" : false,
   "urgent" : true,
   "notUrgent" : false,
-  "whenUrgent" : [ 2025, 5, 21 ],
-  "expiryDate" : [ 2025, 5, 21 ],
-  "creationDate" : [ 2025, 5, 21 ],
-  "category" : "Education"
-}, {
-  "title" : "Ein neues TODO",
-  "description" : "Lorem Ipsum j",
-  "permanence" : false,
-  "urgent" : true,
-  "notUrgent" : false,
-  "whenUrgent" : [ 2025, 5, 21 ],
-  "expiryDate" : [ 2025, 5, 21 ],
-  "creationDate" : [ 2025, 5, 21 ],
-  "category" : "Education"
-}, {
-  "title" : "Permanentes Todo",
-  "description" : "Ein kreativer ",
-  "permanence" : true,
-  "urgent" : true,
-  "notUrgent" : false,
-  "whenUrgent" : [ 2025, 5, 30 ],
-  "expiryDate" : [ 2025, 5, 30 ],
-  "creationDate" : [ 2025, 5, 30 ],
-  "category" : "Education"
-}, {
-  "title" : "Späteres Todo",
-  "description" : "Ein Todo, das später wichtig wird",
-  "permanence" : false,
-  "urgent" : true,
-  "notUrgent" : false,
-  "whenUrgent" : [ 2025, 6, 3 ],
-  "expiryDate" : [ 2025, 5, 31 ],
-  "creationDate" : [ 2025, 5, 31 ],
-  "category" : "Education"
-}, {
-  "title" : "Heute ist Sommerzeit",
-  "description" : "Warm und Toll jaiiii juju hh ",
-  "permanence" : false,
-  "urgent" : true,
-  "notUrgent" : false,
-  "whenUrgent" : [ 2025, 6, 1 ],
-  "expiryDate" : [ 2025, 6, 3 ],
-  "creationDate" : [ 2025, 6, 1 ],
-  "category" : "Leisure"
-}, {
-  "title" : "Abendessen",
-  "description" : "mit Paul heute",
-  "permanence" : false,
-  "urgent" : true,
-  "notUrgent" : false,
-  "whenUrgent" : [ 2025, 6, 8 ],
-  "expiryDate" : [ 2025, 6, 8 ],
-  "creationDate" : [ 2025, 6, 3 ],
-  "category" : "Leisure"
-}, {
-  "title" : "hfgjfhjf",
-  "description" : "jgfjgjfhj",
-  "permanence" : false,
-  "urgent" : true,
-  "notUrgent" : false,
-  "whenUrgent" : [ 2025, 6, 17 ],
-  "expiryDate" : [ 2025, 6, 17 ],
-  "creationDate" : [ 2025, 6, 17 ],
-  "category" : "Education"
-}, {
-  "title" : "nelly zeigen",
-  "description" : "beschreibung",
-  "permanence" : false,
-  "urgent" : true,
-  "notUrgent" : false,
-  "whenUrgent" : [ 2025, 6, 20 ],
-  "expiryDate" : [ 2025, 6, 21 ],
-  "creationDate" : [ 2025, 6, 19 ],
-  "category" : "Education"
+  "whenUrgent" : [ 2025, 6, 24 ],
+  "expiryDate" : [ 2025, 6, 24 ],
+  "creationDate" : [ 2025, 6, 24 ],
+  "category" : "Housework"
 } ]

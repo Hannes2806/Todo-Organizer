@@ -12,6 +12,7 @@ public class MainController {
     Data data = Data.getInstance();
 
     public MainController(MainView mainView) {
+
         //Action listener header:
         MainView.getViewsBox().addActionListener(new ActionListener() {
             @Override
@@ -44,6 +45,13 @@ public class MainController {
             public void actionPerformed(ActionEvent e) {
                 MainView.getNewTodoView().setActiveIndex(-1);
                 switchPanel("NewTodo");
+            }
+        });
+
+        MainView.getSettingsButton().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                switchPanel("Settings");
             }
         });
     }

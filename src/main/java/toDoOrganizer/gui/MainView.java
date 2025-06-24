@@ -1,9 +1,6 @@
 package toDoOrganizer.gui;
 
-import toDoOrganizer.controller.CalendarController;
-import toDoOrganizer.controller.NewTodoController;
-import toDoOrganizer.controller.OverviewController;
-import toDoOrganizer.controller.TodayController;
+import toDoOrganizer.controller.*;
 
 import javax.swing.*;
 import java.awt.*;
@@ -29,6 +26,8 @@ public class MainView extends JFrame {
     private HomeView homeView;
     private static NewTodoView newTodoView;
     private static NewTodoController newTodoController;
+    private static SettingsView settingsView;
+    private static SettingsController settingsController;
 
     public MainView() {
         initJFrame();
@@ -84,6 +83,9 @@ public class MainView extends JFrame {
         homeView = new HomeView();
         newTodoView = new NewTodoView();
         newTodoController = new NewTodoController(newTodoView);
+        settingsView = new SettingsView();
+        settingsController = new SettingsController(settingsView);
+
     }
 
     private void addCards() {
@@ -92,6 +94,7 @@ public class MainView extends JFrame {
         main.add(calendarView, "Calendar");
         main.add(homeView, "Home");
         main.add(newTodoView, "NewTodo");
+        main.add(settingsView, "Settings");
     }
 
     static class BulletPointRenderer extends DefaultListCellRenderer {
