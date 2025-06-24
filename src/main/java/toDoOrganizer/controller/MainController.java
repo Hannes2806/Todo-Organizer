@@ -54,6 +54,13 @@ public class MainController {
                 switchPanel("Settings");
             }
         });
+
+        MainView.getInfoButton().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                switchPanel("Info");
+            }
+        });
     }
 
     public static void switchPanel(String panel) {

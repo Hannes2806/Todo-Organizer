@@ -23,11 +23,11 @@ public class MainView extends JFrame {
     private static TodayController todayController;
     private static CalendarView calendarView;
     private static CalendarController calendarController;
-    private HomeView homeView;
     private static NewTodoView newTodoView;
     private static NewTodoController newTodoController;
     private static SettingsView settingsView;
     private static SettingsController settingsController;
+    private static InfoView infoView;
 
     public MainView() {
         initJFrame();
@@ -46,7 +46,7 @@ public class MainView extends JFrame {
     private void initHeader() {
         header = new JPanel(new FlowLayout(FlowLayout.LEFT));
         //Page selection:
-        String[] viewsArray = {"Overview", "Today", "Calendar", "Home"};
+        String[] viewsArray = {"Overview", "Today", "Calendar"};
         viewsBox = new JComboBox<>(viewsArray);
         header.add(viewsBox);
 
@@ -80,21 +80,20 @@ public class MainView extends JFrame {
         todayController = new TodayController(todayView);
         calendarView = new CalendarView(LocalDate.now().getMonthValue(), LocalDate.now().getYear());
         calendarController = new CalendarController(calendarView);
-        homeView = new HomeView();
         newTodoView = new NewTodoView();
         newTodoController = new NewTodoController(newTodoView);
         settingsView = new SettingsView();
         settingsController = new SettingsController(settingsView);
-
+        infoView = new InfoView();
     }
 
     private void addCards() {
         main.add(overviewView, "Overview");
         main.add(todayView, "Today");
         main.add(calendarView, "Calendar");
-        main.add(homeView, "Home");
         main.add(newTodoView, "NewTodo");
         main.add(settingsView, "Settings");
+        main.add(infoView, "Info");
     }
 
     static class BulletPointRenderer extends DefaultListCellRenderer {

@@ -108,10 +108,6 @@ public class Data {
         return this.toDoList;
     }
 
-    public DefaultListModel<ToDo> getToDoListModel() {
-        return toDoListModel;
-    }
-
     public DefaultListModel<String> getTitles(ArrayList<ToDo> filteredList) {
         DefaultListModel<String> titlesModel = new DefaultListModel<>();
         for (ToDo toDo : filteredList) {

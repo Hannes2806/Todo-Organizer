@@ -21,6 +21,7 @@ public class SettingsView extends JPanel {
         JLabel warningLabel = new JLabel("(Warning: deletes all data irretrievably!)");
         warningLabel.setFont(new Font("Arial", Font.PLAIN, 18));
         warningLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
+        warningLabel.setForeground(Color.RED);
         add(warningLabel);
     }
 
