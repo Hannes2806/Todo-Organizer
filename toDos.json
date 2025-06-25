@@ -32,8 +32,8 @@
   "title" : "1h Buch lesen",
   "description" : "1h täglich im Buch meiner Wahl",
   "permanence" : true,
-  "urgent" : false,
-  "notUrgent" : true,
+  "urgent" : true,
+  "notUrgent" : false,
   "whenUrgent" : [ 2025, 6, 25 ],
   "expiryDate" : [ 2025, 6, 25 ],
   "creationDate" : [ 2025, 6, 25 ],
@@ -42,10 +42,40 @@
   "title" : "Liebesbrief schreiben",
   "description" : "in den Briefkasten werfen",
   "permanence" : false,
-  "urgent" : true,
-  "notUrgent" : false,
+  "urgent" : false,
+  "notUrgent" : true,
   "whenUrgent" : [ 2025, 6, 26 ],
   "expiryDate" : [ 2025, 6, 28 ],
   "creationDate" : [ 2025, 6, 25 ],
   "category" : "Leisure"
+}, {
+  "title" : "Geschenk abholen",
+  "description" : "von Freund Geschenk abholen",
+  "permanence" : false,
+  "urgent" : false,
+  "notUrgent" : true,
+  "whenUrgent" : [ 2025, 6, 29 ],
+  "expiryDate" : [ 2025, 6, 29 ],
+  "creationDate" : [ 2025, 6, 25 ],
+  "category" : "Leisure"
+}, {
+  "title" : "Meeting mit Herr Meier",
+  "description" : "16:00 im Konferenzraum",
+  "permanence" : false,
+  "urgent" : false,
+  "notUrgent" : true,
+  "whenUrgent" : [ 2025, 6, 26 ],
+  "expiryDate" : [ 2025, 6, 26 ],
+  "creationDate" : [ 2025, 6, 25 ],
+  "category" : "Work"
+}, {
+  "title" : "Website beenden",
+  "description" : "mit Foto",
+  "permanence" : false,
+  "urgent" : true,
+  "notUrgent" : false,
+  "whenUrgent" : [ 2025, 6, 25 ],
+  "expiryDate" : [ 2025, 6, 25 ],
+  "creationDate" : [ 2025, 6, 25 ],
+  "category" : "Work"
 } ]

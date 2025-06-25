@@ -51,6 +51,7 @@ public class DetailController {
                         "Description: " + selected.getDescription() + "\n" +
                         "Expiry date: " + selected.getExpiryDate() + "\n" +
                         "Is urgent: " + (selected.getUrgent() ? "Yes" : "No") + "\n" +
+                        "When urgent: " + selected.getWhenUrgent() + "\n" +
                         "Is permanent: " + (selected.getPermanence() ? "Yes" : "No") + "\n" +
                         "Category: " + selected.getCategory()
         );
