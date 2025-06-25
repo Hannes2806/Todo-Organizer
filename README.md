@@ -1,54 +1,57 @@
 # 📅 ToDo-Organizer
 
-Ein einfacher ToDo-Organizer zum Erstellen, Verwalten und Filtern von Aufgaben nach Dringlichkeit und Datum – mit grafischer Benutzeroberfläche (Swing).
+A simple to-do organiser for creating, managing and filtering tasks according to urgency and date - with a graphical user interface (Swing).
 
 ---
 
 ## 🚀 Features
 
-- ToDo-Übersicht geordnet nach Dringlichkeit
-- Detailansicht zu einzelnen Todos
-- gefilterte Tagesansicht
-- dynamischer Kalender zur Übersicht
-- Erstellung, Bearbeitung und Entfernung von Todos
-- lokale Speicherung im JSON-Format
-- Übersichtlicher Code nach mvc
+- ToDo overview sorted by urgency
+- detailed view of individual todos
+- filtered TodayView
+- dynamic calendar for an overview
+- creation, editing and removal of todos
+- local storage in JSON format
+- clear code according to mvc
 
 ---
 
 ## 📷 Screenshots
 
-![Screenshot Overview](img/Screenshot Overview.jpg)
+![Screenshot Overview](img/ScreenshotOverview.jpg)
+![Screenshot NewTodo](img/ScreenshotNewTodo.jpg)
+![Screenshot Calendar](img/ScreenshotCalendar.jpg)
+![Screenshot TodayView](img/ScreenshotTodayView.jpg)
 
 ---
 
-## 🛠️ Verwendete Technologien
+## 🛠️ Used technologies
 
-| Tool / Library                                                   | Zweck                 |
+| Tool / Library                                                   | Purpose               |
 |------------------------------------------------------------------|-----------------------|
-| Java (21+), getestet mit GraalVM JDK 21                          | Programmiersprache    |
+| Java (21+), tested with GraalVM JDK 21                           | Programming language  |
 | Swing                                                            | GUI-Toolkit           |
 | Maven (3.6+)                                                     | Dependency-Management |
-| [Jackson Databind](https://github.com/FasterXML/jackson) (v2.15) | JSON-Serialisierung   |
+| [Jackson Databind](https://github.com/FasterXML/jackson) (v2.15) | JSON-Serialisation    |
 
 ---
 
-## 💻 Installation/Ausführung
+## 💻 Installation/Execution
 
-Voraussetzungen:
-- Java JDK **21** oder neuer (z.B. [GraalVM JDK 21](https://www.graalvm.org))
-- Maven 3.6 oder neuer
+Requirements:
+- Java JDK **21** or later (z.B. [GraalVM JDK 21](https://www.graalvm.org))
+- Maven 3.6 or later
 
-### Mit IDE (Intellij)
+### With IDE (Intellij)
 
-1. Projekt klonen: `git clone https://github.com/Hannes2806/Todo-Organizer.git`
-2. Öffnen in der IDE
-3. `Main.java` ausführen
+1. Clone project: `git clone https://github.com/Hannes2806/Todo-Organizer.git`
+2. Open in IDE (Intellij)
+3. Execute `Main.java`
 
-## 📄 Lizenz
+## 📄 Licence
 
-Dieses Projekt steht unter der Apache License 2.0. Weitere Informationen siehe [LICENSE](LICENSE.txt).
+This project is licensed under the Apache Licence 2.0. For more information see [LICENSE](LICENSE.txt).
 
-## Autor
+## Author
 
 Hannes F. Martens 
