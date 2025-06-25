@@ -32,7 +32,7 @@ public class TodayController {
     }
 
     public void refreshData() {
-        todayView.getTodayLabel().setText("<html><u>Todos on: " + todayView.getActiveDate() + "</u></html>");
+        todayView.getTodayLabel().setText("Todos on: " + todayView.getActiveDate());
         todayView.getTodayListModel().clear();
         todayView.getTodayListModel().addAll(Collections.list(data.filterDate(data.getToDoList(), todayView.getActiveDate()).elements()));
 

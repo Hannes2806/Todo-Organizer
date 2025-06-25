@@ -1,34 +1,28 @@
 package toDoOrganizer.gui;
 
+import toDoOrganizer.data.Data;
+
 import javax.swing.*;
 import java.awt.*;
 
 public class InfoView extends JPanel {
-    private Font headingFont;
-    private Font subheadingFont;
-    private Font textFont;
-
+    private Data data = Data.getInstance();
 
     public InfoView() {
-        headingFont = new Font("Arial", Font.BOLD, 24);
-        subheadingFont = new Font("Arial", Font.BOLD, 16);
-        textFont = new Font("Arial", Font.PLAIN, 14);
-
         setLayout(new BorderLayout());
 
         add(initHead(), BorderLayout.NORTH);
         add(initMain(), BorderLayout.CENTER);
-
-
     }
 
     private JPanel initHead() {
         JPanel headingPanel = new JPanel();
         headingPanel.setLayout(new BoxLayout(headingPanel, BoxLayout.Y_AXIS));
+        headingPanel.setBorder(BorderFactory.createEmptyBorder(0, 30, 10, 0));
 
         JLabel heading = new JLabel("Todo-Organizer Info");
-        heading.setFont(headingFont);
-        heading.setBorder(BorderFactory.createEmptyBorder(10, 20, 20, 0));
+        heading.setFont(data.getHeadingFont());
+        heading.setBorder(BorderFactory.createEmptyBorder(10, 0, 20, 0));
         heading.setAlignmentX(Component.LEFT_ALIGNMENT);
         headingPanel.add(heading);
 
@@ -41,8 +35,8 @@ public class InfoView extends JPanel {
         firstDescription.setOpaque(false);                 // no white background
         firstDescription.setBorder(null);                  // no visible Border
         firstDescription.setAlignmentX(Component.LEFT_ALIGNMENT);
-        firstDescription.setBorder(BorderFactory.createEmptyBorder(0, 20, 10, 0));
-        firstDescription.setFont(textFont);
+        firstDescription.setBorder(BorderFactory.createEmptyBorder(0, 0, 10, 0));
+        firstDescription.setFont(data.getTextFont());
         firstDescription.setMaximumSize(new Dimension(600, Integer.MAX_VALUE)); // max width
         headingPanel.add(firstDescription);
 
@@ -52,6 +46,7 @@ public class InfoView extends JPanel {
     private JPanel initMain() {
         JPanel mainPanel = new JPanel();
         mainPanel.setLayout(new GridBagLayout());
+        mainPanel.setBorder(BorderFactory.createEmptyBorder(0, 20, 10, 0));
 
         GridBagConstraints gbc = initGridBagConstraints();
 
@@ -80,7 +75,7 @@ public class InfoView extends JPanel {
         gbc.gridy = 0;
         gbc.gridx = 0;
         JLabel functionsHeading = new JLabel("Functions");
-        functionsHeading.setFont(subheadingFont);
+        functionsHeading.setFont(data.getSubheadingFont());
         mainPanel.add(functionsHeading, gbc);
     }
 
@@ -88,7 +83,7 @@ public class InfoView extends JPanel {
         gbc.gridy = 1;
         gbc.gridx = 0;
         JLabel overviewTitle = new JLabel("Overview: ");
-        overviewTitle.setFont(textFont);
+        overviewTitle.setFont(data.getTextFont());
         mainPanel.add(overviewTitle, gbc);
 
         JTextArea overviewDescription = new JTextArea("Here all todos are divided into urgent and not urgent. " +
@@ -99,7 +94,7 @@ public class InfoView extends JPanel {
         overviewDescription.setOpaque(false);                 // no white background
         overviewDescription.setBorder(null);                  // no visible Border
         overviewDescription.setAlignmentX(Component.LEFT_ALIGNMENT);
-        overviewDescription.setFont(textFont);
+        overviewDescription.setFont(data.getTextFont());
         overviewDescription.setPreferredSize(new Dimension(300, 50));
         gbc.gridx = 1;
         mainPanel.add(overviewDescription, gbc);
@@ -109,7 +104,7 @@ public class InfoView extends JPanel {
         gbc.gridy = 2;
         gbc.gridx = 0;
         JLabel todayTitle = new JLabel("Today: ");
-        todayTitle.setFont(textFont);
+        todayTitle.setFont(data.getTextFont());
         mainPanel.add(todayTitle, gbc);
 
         JTextArea todayDescription = new JTextArea("Here we filter for the todos that are pending today. " +
@@ -120,7 +115,7 @@ public class InfoView extends JPanel {
         todayDescription.setOpaque(false);                 // no white background
         todayDescription.setBorder(null);                  // no visible Border
         todayDescription.setAlignmentX(Component.LEFT_ALIGNMENT);
-        todayDescription.setFont(textFont);
+        todayDescription.setFont(data.getTextFont());
         todayDescription.setPreferredSize(new Dimension(300, 50));
         gbc.gridx = 1;
         mainPanel.add(todayDescription, gbc);
@@ -130,7 +125,7 @@ public class InfoView extends JPanel {
         gbc.gridy = 3;
         gbc.gridx = 0;
         JLabel calendarTitle = new JLabel("Calendar: ");
-        calendarTitle.setFont(textFont);
+        calendarTitle.setFont(data.getTextFont());
         mainPanel.add(calendarTitle, gbc);
 
         JTextArea calendarDescription = new JTextArea("The calendar sorts the todos by day. Clicking " +
@@ -141,7 +136,7 @@ public class InfoView extends JPanel {
         calendarDescription.setOpaque(false);                 // no white background
         calendarDescription.setBorder(null);                  // no visible Border
         calendarDescription.setAlignmentX(Component.LEFT_ALIGNMENT);
-        calendarDescription.setFont(textFont);
+        calendarDescription.setFont(data.getTextFont());
         calendarDescription.setPreferredSize(new Dimension(300, 50));
         gbc.gridx = 1;
         mainPanel.add(calendarDescription, gbc);
@@ -151,7 +146,7 @@ public class InfoView extends JPanel {
         gbc.gridy = 4;
         gbc.gridx = 0;
         JLabel newTodoTitle = new JLabel("New Todo: ");
-        newTodoTitle.setFont(textFont);
+        newTodoTitle.setFont(data.getTextFont());
         mainPanel.add(newTodoTitle, gbc);
 
         JTextArea newTodoDescription = new JTextArea("New todos can be created here. Each todo needs " +
@@ -165,7 +160,7 @@ public class InfoView extends JPanel {
         newTodoDescription.setOpaque(false);                 // no white background
         newTodoDescription.setBorder(null);                  // no visible Border
         newTodoDescription.setAlignmentX(Component.LEFT_ALIGNMENT);
-        newTodoDescription.setFont(textFont);
+        newTodoDescription.setFont(data.getTextFont());
         newTodoDescription.setPreferredSize(new Dimension(300, 100));
         gbc.gridx = 1;
         mainPanel.add(newTodoDescription, gbc);
@@ -175,7 +170,7 @@ public class InfoView extends JPanel {
         gbc.gridy = 5;
         gbc.gridx = 0;
         JLabel deletionTitle = new JLabel("Delete Todos: ");
-        deletionTitle.setFont(textFont);
+        deletionTitle.setFont(data.getTextFont());
         mainPanel.add(deletionTitle, gbc);
 
         JTextArea deletionDescription = new JTextArea("In addition to being able to delete the todos in the details, " +
@@ -187,7 +182,7 @@ public class InfoView extends JPanel {
         deletionDescription.setOpaque(false);                 // no white background
         deletionDescription.setBorder(null);                  // no visible Border
         deletionDescription.setAlignmentX(Component.LEFT_ALIGNMENT);
-        deletionDescription.setFont(textFont);
+        deletionDescription.setFont(data.getTextFont());
         deletionDescription.setPreferredSize(new Dimension(300, 100));
         gbc.gridx = 1;
         mainPanel.add(deletionDescription, gbc);

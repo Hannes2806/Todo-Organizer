@@ -43,8 +43,8 @@ public class TodayView extends JPanel {
 
     private void initHeadline(GridBagConstraints gbc) {
         gbc.gridy = 0;
-        todayLabel = new JLabel("<html><u>Todos on: " + activeDate + "</u></html>");
-        todayLabel.setFont(new Font("Arial", Font.BOLD, 18));
+        todayLabel = new JLabel("Todos on: " + activeDate);
+        todayLabel.setFont(data.getHeadingFont());
         todayPanel.add(todayLabel, gbc);
     }
 
@@ -53,6 +53,7 @@ public class TodayView extends JPanel {
         todayListModel = data.filterDate(data.getToDoList(), activeDate);
         todayList = new JList<>(todayListModel);
         todayList.setCellRenderer(new MainView.BulletPointRenderer()); //integrate Bulletpoints
+        todayList.setFont(data.getTextFont());
         JScrollPane todayScrollPane = new JScrollPane(todayList);
         todayScrollPane.setPreferredSize(new Dimension(300, 200)); //minimum width/height
         todayPanel.add(todayScrollPane, gbc);
@@ -62,6 +63,7 @@ public class TodayView extends JPanel {
         gbc.insets = new Insets(10, 10, 185, 10); //distances
         gbc.gridy = 2;
         calendarButton = new JButton("<- To calendar");
+        calendarButton.setFont(data.getTextFont());
         todayPanel.add(calendarButton, gbc);
     }
 

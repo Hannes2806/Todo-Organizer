@@ -4,8 +4,8 @@
   "permanence" : false,
   "urgent" : true,
   "notUrgent" : false,
-  "whenUrgent" : [ 2025, 6, 24 ],
-  "expiryDate" : [ 2025, 6, 24 ],
+  "whenUrgent" : [ 2025, 6, 25 ],
+  "expiryDate" : [ 2025, 6, 25 ],
   "creationDate" : [ 2025, 6, 24 ],
   "category" : "Housework"
 } ]

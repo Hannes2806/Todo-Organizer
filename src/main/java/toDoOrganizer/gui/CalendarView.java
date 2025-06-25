@@ -48,10 +48,12 @@ public class CalendarView extends JPanel {
         JPanel monthPanel = new JPanel();
         monthPanel.setLayout(new FlowLayout());
         monthBackButton = new JButton("<<");
+        monthBackButton.setFont(data.getTextFont());
         monthForthButton = new JButton(">>");
+        monthForthButton.setFont(data.getTextFont());
         monthLabel = new JLabel();
         setText(monthLabel);
-        monthLabel.setFont(new Font("Arial", Font.PLAIN, 24));
+        monthLabel.setFont(data.getHeadingFont());
         monthPanel.setMaximumSize(new Dimension(Integer.MAX_VALUE, monthPanel.getPreferredSize().height));
         monthPanel.add(monthBackButton);
         monthPanel.add(monthLabel);
@@ -66,7 +68,7 @@ public class CalendarView extends JPanel {
         String[] days = {"So", "Mo", "Di", "Mi", "Do", "Fr", "Sa"};
         for (String day : days) {
             JLabel daysLabel = new JLabel(day, SwingConstants.CENTER);
-            daysLabel.setFont(new Font("Arial", Font.PLAIN, 18));
+            daysLabel.setFont(data.getSubheadingFont());
             calendarPanel.add(daysLabel);
         }
     }
@@ -104,7 +106,7 @@ public class CalendarView extends JPanel {
     private void setDesign(DayLabel dayLabel, int day) {
         dayLabel.setVerticalAlignment(SwingConstants.TOP);
         dayLabel.setHorizontalAlignment(SwingConstants.CENTER);
-        dayLabel.setFont(new Font("Arial", Font.PLAIN, 14));
+        dayLabel.setFont(data.getTextFont());
         dayLabel.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         //color for today
         if (LocalDate.now().equals(LocalDate.of(activeYear, activeMonth, day))) {

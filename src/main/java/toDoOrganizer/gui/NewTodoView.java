@@ -46,8 +46,8 @@ public class NewTodoView extends JPanel {
         gbc.anchor = GridBagConstraints.WEST;
         gbc.gridx = 0;
         gbc.gridy = 0;
-        JLabel headingLabel = new JLabel("<html><u>New ToDo</u></html>");
-        headingLabel.setFont(new Font("Arial", Font.BOLD, 18));
+        JLabel headingLabel = new JLabel("<html>New ToDo</html>");
+        headingLabel.setFont(data.getHeadingFont());
         add(headingLabel, gbc);
     }
 
@@ -56,9 +56,11 @@ public class NewTodoView extends JPanel {
         gbc.gridx = 0;
         gbc.gridy = 1;
         JLabel titleLabel = new JLabel("Title:");
+        titleLabel.setFont(data.getTextFont());
         add(titleLabel, gbc);
         gbc.gridx = 1;
         titleTextField = new JTextField(30);
+        titleTextField.setFont(data.getTextFont());
         add(titleTextField, gbc);
     }
 
@@ -66,11 +68,13 @@ public class NewTodoView extends JPanel {
         gbc.gridx = 0;
         gbc.gridy = 2;
         JLabel descriptionLabel = new JLabel("Description:");
+        descriptionLabel.setFont(data.getTextFont());
         add(descriptionLabel, gbc);
         gbc.gridx = 1;
         descriptionTextArea = new JTextArea(10, 30);
         descriptionTextArea.setLineWrap(true);
         descriptionTextArea.setWrapStyleWord(true);
+        descriptionTextArea.setFont(data.getTextFont());
         JScrollPane descriptionScrollPane = new JScrollPane(descriptionTextArea);
         add(descriptionScrollPane, gbc);
     }
@@ -79,6 +83,7 @@ public class NewTodoView extends JPanel {
         gbc.gridx = 0;
         gbc.gridy = 3;
         JLabel permanentLabel = new JLabel("Permanent:");
+        permanentLabel.setFont(data.getTextFont());
         add(permanentLabel, gbc);
         gbc.gridx = 1;
         permanentCheckBox = new JCheckBox();
@@ -89,6 +94,7 @@ public class NewTodoView extends JPanel {
         gbc.gridx = 0;
         gbc.gridy = 4;
         JLabel urgentLabel = new JLabel("Urgent:");
+        urgentLabel.setFont(data.getTextFont());
         add(urgentLabel, gbc);
         gbc.gridx = 1;
         urgentRadioButton = new JRadioButton();
@@ -97,6 +103,7 @@ public class NewTodoView extends JPanel {
         gbc.gridx = 0;
         gbc.gridy = 5;
         JLabel notUrgentLabel = new JLabel("Not urgent:");
+        notUrgentLabel.setFont(data.getTextFont());
         add(notUrgentLabel, gbc);
         gbc.gridx = 1;
         notUrgentRadioButton = new JRadioButton();
@@ -112,12 +119,14 @@ public class NewTodoView extends JPanel {
         gbc.gridx = 0;
         gbc.gridy = 6;
         JLabel whenUrgentLabel = new JLabel("When urgent:");
+        whenUrgentLabel.setFont(data.getTextFont());
         add(whenUrgentLabel, gbc);
         gbc.gridx = 1;
         whenUrgentModel = new SpinnerDateModel();
         whenUrgentSpinner = new JSpinner(whenUrgentModel);
         JSpinner.DateEditor whenUrgentEditor = new JSpinner.DateEditor(whenUrgentSpinner, "dd.MM.yyyy");
         whenUrgentSpinner.setEditor(whenUrgentEditor);
+        whenUrgentSpinner.setFont(data.getTextFont());
         add(whenUrgentSpinner, gbc);
     }
 
@@ -125,12 +134,14 @@ public class NewTodoView extends JPanel {
         gbc.gridx = 0;
         gbc.gridy = 7;
         JLabel expiryLabel = new JLabel("Expiry date:");
+        expiryLabel.setFont(data.getTextFont());
         add(expiryLabel, gbc);
         gbc.gridx = 1;
         expiryModel = new SpinnerDateModel();
         expirySpinner = new JSpinner(expiryModel);
         JSpinner.DateEditor expiryEditor = new JSpinner.DateEditor(expirySpinner, "dd.MM.yyyy");
         expirySpinner.setEditor(expiryEditor);
+        expirySpinner.setFont(data.getTextFont());
         add(expirySpinner, gbc);
     }
 
@@ -138,10 +149,12 @@ public class NewTodoView extends JPanel {
         gbc.gridx = 0;
         gbc.gridy = 8;
         JLabel categoryLabel = new JLabel("Category:");
+        categoryLabel.setFont(data.getTextFont());
         add(categoryLabel, gbc);
         gbc.gridx = 1;
         String[] categoryArray = data.getCategoryArray();
         categoryBox = new JComboBox<>(categoryArray);
+        categoryBox.setFont(data.getTextFont());
         add(categoryBox, gbc);
     }
 
@@ -149,6 +162,7 @@ public class NewTodoView extends JPanel {
         gbc.insets = new Insets(20, 10, 10, 10);
         gbc.gridy = 9;
         toDoSaveButton = new JButton("Save");
+        toDoSaveButton.setFont(data.getTextFont());
         toDoSaveButton.setEnabled(false);
         add(toDoSaveButton, gbc);
     }

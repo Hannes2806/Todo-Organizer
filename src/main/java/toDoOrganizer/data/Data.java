@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 
 import javax.swing.*;
+import java.awt.*;
 import java.io.File;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -20,6 +21,11 @@ public class Data {
     private static final File FILE = new File("toDos.json");
     private static final String[] categoryArray = new String[5];
 
+    private Font headingFont;
+    private Font subheadingFont;
+    private Font textFont;
+
+
     public static Data getInstance() {
         if (instance == null) {
             instance = new Data();
@@ -28,6 +34,10 @@ public class Data {
     }
 
     private Data() {
+        headingFont = new Font("Arial", Font.BOLD, 24);
+        subheadingFont = new Font("Arial", Font.BOLD, 18);
+        textFont = new Font("Arial", Font.PLAIN, 14);
+
         setCathegoryArray();
 
         mapper.registerModule(new JavaTimeModule());
@@ -146,5 +156,17 @@ public class Data {
         toDoList = new ArrayList<>();
         save(this.toDoList);
         System.out.println("ToDo-List deleted.");
+    }
+
+    public Font getHeadingFont() {
+        return headingFont;
+    }
+
+    public Font getSubheadingFont() {
+        return subheadingFont;
+    }
+
+    public Font getTextFont() {
+        return textFont;
     }
 }

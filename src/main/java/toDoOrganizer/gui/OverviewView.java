@@ -42,19 +42,19 @@ public class OverviewView extends JPanel {
     private void initHeadline(GridBagConstraints gbc) {
         gbc.gridx = 0;
         gbc.gridy = 0;
-        JLabel overviewLabel = new JLabel("<html><u>Overview:</u></html>");
-        overviewLabel.setFont(new Font("Arial", Font.BOLD, 18));
+        JLabel overviewLabel = new JLabel("<html>Overview:</html>");
+        overviewLabel.setFont(data.getHeadingFont());
         overviewPanel.add(overviewLabel, gbc);
     }
 
     private void initSubheads(GridBagConstraints gbc) {
         gbc.gridy = 1;
         JLabel urgentLabel = new JLabel("Urgent:");
-        urgentLabel.setFont(new Font("Arial", Font.BOLD, 16));
+        urgentLabel.setFont(data.getSubheadingFont());
         overviewPanel.add(urgentLabel, gbc);
         gbc.gridy = 3;
         JLabel notUrgentLabel = new JLabel("Not urgent:");
-        notUrgentLabel.setFont(new Font("Arial", Font.BOLD, 16));
+        notUrgentLabel.setFont(data.getSubheadingFont());
         overviewPanel.add(notUrgentLabel, gbc);
     }
 
@@ -63,6 +63,7 @@ public class OverviewView extends JPanel {
         urgentListModel = data.filterUrgency(data.getToDoList(), true);
         urgentList = new JList<>(urgentListModel);
         urgentList.setCellRenderer(new MainView.BulletPointRenderer()); //integrate Bulletpoints
+        urgentList.setFont(data.getTextFont());
         JScrollPane urgentScrollPane = new JScrollPane(urgentList);
         urgentScrollPane.setPreferredSize(new Dimension(300, 200)); //minimum width/height
         overviewPanel.add(urgentScrollPane, gbc);
@@ -70,6 +71,7 @@ public class OverviewView extends JPanel {
         notUrgentListModel = data.filterUrgency(data.getToDoList(), false);
         notUrgentList = new JList<>(notUrgentListModel);
         notUrgentList.setCellRenderer(new MainView.BulletPointRenderer()); //integrate Bulletpoints
+        notUrgentList.setFont(data.getTextFont());
         JScrollPane notUrgentScrollPane = new JScrollPane(notUrgentList);
         notUrgentScrollPane.setPreferredSize(new Dimension(300, 200)); //minimum width/height
         overviewPanel.add(notUrgentScrollPane, gbc);
