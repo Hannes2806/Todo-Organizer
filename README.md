@@ -18,7 +18,7 @@ Ein einfacher ToDo-Organizer zum Erstellen, Verwalten und Filtern von Aufgaben n
 
 ## 📷 Screenshots
 
-*(Optional: Screenshot der GUI einfügen)*
+![Screenshot Overview](img/Screenshot Overview.jpg)
 
 ---
 
