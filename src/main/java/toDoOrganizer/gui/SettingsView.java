@@ -6,7 +6,7 @@ import javax.swing.*;
 import java.awt.*;
 
 public class SettingsView extends JPanel {
-    Data data = Data.getInstance();
+    private Data data = Data.getInstance();
     private JButton clearTodosButton;
 
     public SettingsView() {

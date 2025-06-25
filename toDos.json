@@ -8,4 +8,14 @@
   "expiryDate" : [ 2025, 6, 25 ],
   "creationDate" : [ 2025, 6, 24 ],
   "category" : "Housework"
+}, {
+  "title" : "Bewerbung beenden",
+  "description" : "Website fertigstellen, Praxisprojekte verlinken, Bewerbungsschreiben und Lebenslauf erneuern, Empfehlungsschreiben absprechen",
+  "permanence" : false,
+  "urgent" : true,
+  "notUrgent" : false,
+  "whenUrgent" : [ 2025, 6, 25 ],
+  "expiryDate" : [ 2025, 6, 30 ],
+  "creationDate" : [ 2025, 6, 25 ],
+  "category" : "Work"
 } ]

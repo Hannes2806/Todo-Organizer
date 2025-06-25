@@ -37,8 +37,6 @@ public class NewTodoView extends JPanel {
         initExpirySection(gbc);
         initCategorySection(gbc);
         initSaveSection(gbc);
-
-        //Ist es schon drin, das Todo später automatisch urgent wird?
     }
 
     private void initHeadingSection(GridBagConstraints gbc) {

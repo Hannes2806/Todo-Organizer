@@ -1,6 +1,5 @@
 package toDoOrganizer.controller;
 
-import toDoOrganizer.data.Data;
 import toDoOrganizer.gui.CalendarView;
 import toDoOrganizer.gui.DayLabel;
 import toDoOrganizer.gui.MainView;
@@ -11,7 +10,6 @@ import java.awt.event.*;
 import java.util.*;
 
 public class CalendarController {
-    Data data = Data.getInstance();
     private CalendarView calendarView;
     private DefaultListModel<DayLabel> oldDaysWithTodosLabelListModel = new DefaultListModel<>();
     private Map<DayLabel, MouseListener> labelMouseListenerMap = new IdentityHashMap<>();

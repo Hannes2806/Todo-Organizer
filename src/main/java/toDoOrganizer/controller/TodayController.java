@@ -1,16 +1,14 @@
 package toDoOrganizer.controller;
 
 import toDoOrganizer.data.Data;
-import toDoOrganizer.gui.MainView;
 import toDoOrganizer.gui.TodayView;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.time.LocalDate;
 import java.util.Collections;
 
 public class TodayController {
-    Data data = Data.getInstance();
+    private Data data = Data.getInstance();
     private TodayView todayView;
 
     public TodayController(TodayView view) {
@@ -35,9 +33,6 @@ public class TodayController {
         todayView.getTodayLabel().setText("Todos on: " + todayView.getActiveDate());
         todayView.getTodayListModel().clear();
         todayView.getTodayListModel().addAll(Collections.list(data.filterDate(data.getToDoList(), todayView.getActiveDate()).elements()));
-
-    //Die Überschrift soll das aktivierte Datum sein
-
     }
 
 }

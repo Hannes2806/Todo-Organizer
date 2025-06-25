@@ -6,11 +6,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.time.LocalDate;
 import java.time.Month;
-import java.time.Year;
 import java.time.YearMonth;
-import java.util.Calendar;
-
-import static javax.swing.BoxLayout.Y_AXIS;
 
 public class CalendarView extends JPanel {
     private Data data = Data.getInstance();
@@ -153,11 +149,6 @@ public class CalendarView extends JPanel {
         getMonthData();
         initCalendarDays();
 
-    }
-
-
-    public DefaultListModel<DayLabel> getDaysLabelListModel() {
-        return daysLabelListModel;
     }
 
     public DefaultListModel<DayLabel> getDaysWithTodosLabelListModel() {

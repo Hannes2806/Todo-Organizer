@@ -1,6 +1,7 @@
 package toDoOrganizer.gui;
 
 import toDoOrganizer.controller.*;
+import toDoOrganizer.data.Data;
 
 import javax.swing.*;
 import java.awt.*;
@@ -9,6 +10,7 @@ import java.time.LocalDate;
 
 public class MainView extends JFrame {
     //MainView combines every view in one
+    private Data data = Data.getInstance();
     private static JPanel main, header;
 
     private static JComboBox<String> viewsBox;
@@ -48,13 +50,17 @@ public class MainView extends JFrame {
         //Page selection:
         String[] viewsArray = {"Overview", "Today", "Calendar"};
         viewsBox = new JComboBox<>(viewsArray);
+        viewsBox.setFont(data.getTextFont());
         header.add(viewsBox);
 
         newTodoButton = new JButton("New Todo");
+        newTodoButton.setFont(data.getTextFont());
         header.add(newTodoButton);
         settingsButton = new JButton("Settings");
+        settingsButton.setFont(data.getTextFont());
         header.add(settingsButton);
         infoButton = new JButton("?");
+        infoButton.setFont(data.getTextFont());;
         header.add(infoButton);
         header.setBackground(new Color(53, 83, 184));
         add(header, BorderLayout.NORTH);

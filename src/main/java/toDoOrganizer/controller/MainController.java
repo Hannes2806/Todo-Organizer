@@ -2,14 +2,12 @@ package toDoOrganizer.controller;
 
 import toDoOrganizer.data.Data;
 import toDoOrganizer.gui.MainView;
-import toDoOrganizer.gui.TodayView;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.time.LocalDate;
 
 public class MainController {
-    Data data = Data.getInstance();
 
     public MainController(MainView mainView) {
 
@@ -65,10 +63,6 @@ public class MainController {
 
     public static void switchPanel(String panel) {
         MainView.getCardLayout().show(MainView.getMain(), panel);
-//        main.removeAll();  // Entferne alle Panels
-//        main.add(panel);    // Füge das neue Panel hinzu
-//        main.revalidate();  // Layout neu validieren
-//        main.repaint();     // Layout neu zeichnen
     }
 
     public static void refreshViews() {

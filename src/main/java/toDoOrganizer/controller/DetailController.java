@@ -10,12 +10,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class DetailController {
-    Data data = Data.getInstance();
+    private Data data = Data.getInstance();
     private DetailView detailView;
 
     public DetailController(DetailView view) {
         detailView = view;
-        //Add action listeners
 
         detailView.getEditButton().addActionListener(new ActionListener() {
             @Override
