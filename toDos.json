@@ -1,6 +1,6 @@
 [ {
   "title" : "Wäsche abhängen",
-  "description" : "abhängen und zusammenlegen",
+  "description" : "abhängen und zusammenlegen und am besten so lange damit warten bis Anne da ist, damit ich es nicht alleine machen muss und sie mir hilft ",
   "permanence" : false,
   "urgent" : true,
   "notUrgent" : false,
@@ -20,10 +20,10 @@
   "category" : "Work"
 }, {
   "title" : "Pflanzen düngen",
-  "description" : "Dünger und Wasser",
+  "description" : "Dünger und Wasser - nicht nur Dünger, das wäre auch schlecht. Die Dosis macht das Gift\nLG \nDie Pflanzenkennerin",
   "permanence" : false,
-  "urgent" : false,
-  "notUrgent" : true,
+  "urgent" : true,
+  "notUrgent" : false,
   "whenUrgent" : [ 2025, 6, 27 ],
   "expiryDate" : [ 2025, 6, 30 ],
   "creationDate" : [ 2025, 6, 25 ],
@@ -40,30 +40,30 @@
   "category" : "Education"
 }, {
   "title" : "Liebesbrief schreiben",
-  "description" : "in den Briefkasten werfen",
+  "description" : "in den Briefkasten werfen und an Anne adressieren",
   "permanence" : false,
-  "urgent" : false,
-  "notUrgent" : true,
+  "urgent" : true,
+  "notUrgent" : false,
   "whenUrgent" : [ 2025, 6, 26 ],
   "expiryDate" : [ 2025, 6, 28 ],
   "creationDate" : [ 2025, 6, 25 ],
   "category" : "Leisure"
 }, {
   "title" : "Geschenk abholen",
-  "description" : "von Freund Geschenk abholen",
-  "permanence" : false,
+  "description" : "von Freund Geschenk abholen - ich habe Geburtstag und will meine Geschenke! Nach Schwerin fahren und Geschenke von Familie einsacken (HIHIHIHIHI)",
+  "permanence" : true,
   "urgent" : false,
   "notUrgent" : true,
   "whenUrgent" : [ 2025, 6, 29 ],
   "expiryDate" : [ 2025, 6, 29 ],
   "creationDate" : [ 2025, 6, 25 ],
-  "category" : "Leisure"
+  "category" : "Work"
 }, {
   "title" : "Meeting mit Herr Meier",
   "description" : "16:00 im Konferenzraum",
   "permanence" : false,
-  "urgent" : false,
-  "notUrgent" : true,
+  "urgent" : true,
+  "notUrgent" : false,
   "whenUrgent" : [ 2025, 6, 26 ],
   "expiryDate" : [ 2025, 6, 26 ],
   "creationDate" : [ 2025, 6, 25 ],
@@ -77,5 +77,45 @@
   "whenUrgent" : [ 2025, 6, 25 ],
   "expiryDate" : [ 2025, 6, 25 ],
   "creationDate" : [ 2025, 6, 25 ],
+  "category" : "Work"
+}, {
+  "title" : "Hannes Geburtstag",
+  "description" : "toller Tag mit Schnitzeljagd ",
+  "permanence" : false,
+  "urgent" : true,
+  "notUrgent" : false,
+  "whenUrgent" : [ 2025, 6, 28 ],
+  "expiryDate" : [ 2025, 6, 28 ],
+  "creationDate" : [ 2025, 6, 28 ],
+  "category" : "Leisure"
+}, {
+  "title" : "Annes Geburtstag",
+  "description" : "toller Tag mit Ed ",
+  "permanence" : false,
+  "urgent" : true,
+  "notUrgent" : false,
+  "whenUrgent" : [ 2025, 7, 6 ],
+  "expiryDate" : [ 2025, 7, 6 ],
+  "creationDate" : [ 2025, 6, 28 ],
+  "category" : "Education"
+}, {
+  "title" : "1h Buch lesen",
+  "description" : "1h täglich im Buch meiner Wahl",
+  "permanence" : true,
+  "urgent" : true,
+  "notUrgent" : false,
+  "whenUrgent" : [ 2025, 6, 25 ],
+  "expiryDate" : [ 2025, 6, 25 ],
+  "creationDate" : [ 2025, 6, 28 ],
+  "category" : "Education"
+}, {
+  "title" : "To-Do-Oraganizer bearbeiten",
+  "description" : "Zeilenumbruch einarbeiten - bei Titelseite\nDetails löschen bei Seitenwechsel",
+  "permanence" : false,
+  "urgent" : true,
+  "notUrgent" : false,
+  "whenUrgent" : [ 2025, 6, 28 ],
+  "expiryDate" : [ 2025, 6, 30 ],
+  "creationDate" : [ 2025, 6, 28 ],
   "category" : "Work"
 } ]

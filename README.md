@@ -12,7 +12,7 @@ A simple to-do organiser for creating, managing and filtering tasks according to
 - dynamic calendar for an overview
 - creation, editing and removal of todos
 - local storage in JSON format
-- clear code according to mvc
+- clean code according to mvc
 
 ---
 
